@@ -1,0 +1,17 @@
+.navAnimation {
+    animation: fallDown 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  
+  @keyframes fallDown {
+    0% {
+      top: -10%;
+    }
+    100% {
+      top: 0%;
+    }
+  }
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.411);
+    backdrop-filter: blur(10px);
+}

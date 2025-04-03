@@ -1,11 +1,13 @@
 import React from 'react'
+import { Outlet} from 'react-router'
+import Navbar from './components/Navbar/Navbar'
 
 const App = () => {
   return (
-    <div className='h-screen flex items-center justify-center'>
-      <h1 className='text-2xl'>App</h1>
-    </div>
-  )
+    <div>
+      <Navbar/>
+      <Outlet/>
+    </div>  )
 }
 
 export default App

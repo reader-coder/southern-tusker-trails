@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: manrope;
+    font-style: normal;
+    font-weight: 200 500 700;
+    font-display: swap;
+    src: url("/fonts/manrope.woff2") format("woff2");
+  }

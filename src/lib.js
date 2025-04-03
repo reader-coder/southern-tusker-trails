@@ -1,0 +1,1 @@
+export const IKURL=import.meta.env.VITE_PUBLIC_IKURL

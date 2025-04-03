@@ -1,0 +1,39 @@
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router'
+import { Sidebar } from 'primereact/sidebar';
+import { Menu, X } from 'lucide-react';
+import { IKImage } from 'imagekitio-react';
+import { IKURL } from '../../lib';
+import './Navbar.css'
+
+
+const Navbar = () => {
+  const [visible, setVisible] = useState(false)
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    setAnimate(true); // Trigger the animation when the component mounts
+  }, []);
+  return (
+    <div className={`w-full fixed z-10 p-4 md:p-8 lg:px-16 xl:px-24 2xl:px-36 flex justify-between ${animate? 'navAnimation':''}`}>
+     <Sidebar position='right' visible={visible} onHide={() => setVisible(false)} className='bg-white' blockScroll={true} showCloseIcon={false} maskClassName='overlay'>
+        <div className='w-full p-4 md:py-8 flex justify-end'>
+          <button className='cursor-pointer bg-[#A5F211]' onClick={()=>setVisible(false)}><X className='size-7 lg:size-10'/></button>
+        </div>
+        <div className='w-full flex items-center justify-center'>
+          <IKImage urlEndpoint={IKURL} path='logo.png' className='w-32 lg:w-40'/>
+        </div>
+        <div className='flex flex-col gap-5 py-6 px-6 text-2xl font-[manrope]'>
+          <Link to={'/'}>Home</Link>
+          <Link to={'/trekking'}>Trekking</Link>
+          <Link to={'/'}>Camping</Link>
+          <Link to={'/'}>Adventures</Link>
+        </div>
+    </Sidebar>
+    <IKImage urlEndpoint={IKURL} path='logo.png' className='w-20 object-fill'/>
+    <button className='bg-[#A5F211] rounded-full p-2 size-10
+     cursor-pointer' onClick={()=>setVisible(true)}><Menu className='size-6'/></button>
+    </div>
+  )
+}
+
+export default Navbar
