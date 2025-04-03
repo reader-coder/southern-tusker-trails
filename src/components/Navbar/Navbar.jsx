@@ -14,7 +14,7 @@ const Navbar = () => {
     setAnimate(true); // Trigger the animation when the component mounts
   }, []);
   return (
-    <div className={`w-full fixed z-10 p-4 md:p-8 lg:px-16 xl:px-24 2xl:px-36 flex justify-between ${animate? 'navAnimation':''}`}>
+    <div className={`w-full absolute z-20 p-4 md:p-8 lg:px-16 xl:px-24 2xl:px-36 flex justify-between ${animate? 'navAnimation':''}`}>
      <Sidebar position='right' visible={visible} onHide={() => setVisible(false)} className='bg-white' blockScroll={true} showCloseIcon={false} maskClassName='overlay'>
         <div className='w-full p-4 md:py-8 flex justify-end'>
           <button className='cursor-pointer bg-[#A5F211]' onClick={()=>setVisible(false)}><X className='size-7 lg:size-10'/></button>

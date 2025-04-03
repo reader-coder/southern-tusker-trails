@@ -7,3 +7,19 @@
     font-display: swap;
     src: url("/fonts/manrope.woff2") format("woff2");
   }
+
+  @font-face {
+    font-family: technoNueMedium;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("/fonts/technoNueMedium.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: technoNueRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("/fonts/technoNueRegular.woff2") format("woff2");
+  }
