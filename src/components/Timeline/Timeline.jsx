@@ -15,7 +15,7 @@ const Timeline = () => {
   });
 
   return (
-    <div ref={ref} className='h-screen w-full bg-[url(/assets/timelineBG.webp)] bg-cover bg-no-repeat bg-center flex justify-center gap-8 lg:gap-16 px-10 lg:px-20 xl:px-32 2xl:px-56'>
+    <div ref={ref} className='h-screen max-w-screen bg-[url(/assets/timelineBG.webp)] bg-cover bg-no-repeat bg-center flex justify-center gap-8 lg:gap-16 px-10 lg:px-20 xl:px-32 2xl:px-56'>
       {/* Left */}
       <div className={`hidden w-full md:flex flex-col items-center justify-center ${trigger?'comeFromLeft':''}`}>
         <div className='flex gap-2'>
@@ -40,7 +40,7 @@ const Timeline = () => {
             <div className={`rounded-full border-[#A5F211] border-4 bg-black size-8 z-20 ${trigger? 'fadeIn':''}`}></div>
       </div>
       {/* Right */}
-      <div className={`w-full flex flex-col items-center gap-10 sm:gap-0 justify-between py-40 ${trigger ? 'comeFromRight': ''}`}>
+      <div className={`w-full flex flex-col items-center gap-10 sm:gap-0 justify-between py-40 ${trigger ? 'comeFromRight': ''} overflow-y-hidden`}>
       <div className='flex flex-col sm:flex-row gap-2'>
           <IKImage urlEndpoint={IKURL} path='Trekking.png'className='size-40'/>
           <div className='flex flex-col gap-2 sm:gap-8 justify-center'>
