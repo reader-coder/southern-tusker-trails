@@ -6,6 +6,7 @@ import './Timeline.css'
 
 const Timeline = () => {
   const [trigger, setTrigger] = useState(false);
+  // Using useInView to set trigger state to true so that elements can use it to trigger their animation
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
