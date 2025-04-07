@@ -7,7 +7,7 @@ import './HomeBanner.css'
 const HomeBanner = () => {
     const [loading, setLoading]=useState(true)
   return (
-    <div className='h-screen relative z-30'>
+    <div className='h-screen min-h-[800px] relative z-30'>
         <div className='h-full w-full flex items-center justify-center absolute top-0 left-0'>
             <IKVideo urlEndpoint={IKURL} path='banner.mp4' autoPlay muted loop onLoadedData={()=>setLoading(false)} className={`h-full w-full object-cover ${loading ? 'hidden':''}`}/>
             <Loader className={`text-green-600/50 size-12 animate-spin ${!loading ? 'hidden':'' }`}/>

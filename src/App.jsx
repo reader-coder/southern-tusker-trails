@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 
 const App = () => {
   return (
-    <div className='relative'>
+    <div className='relative flex flex-col justify-center'>
       <Navbar/>
       <Outlet/>
     </div>  )
