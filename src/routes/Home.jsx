@@ -3,6 +3,7 @@ import HomeBanner from '../components/HomeBanner/HomeBanner'
 import Timeline from '../components/Timeline/Timeline'
 import UpcomingPackages from '../components/UpcomingPackages/UpcomingPackages'
 import PopularActivities from '../components/PopularActivities/PopularActivities'
+import ThingsToEnjoy from '../components/ThingsToEnjoy/ThingsToEnjoy'
 
 const Home = () => {
   const UPCOMING_OPTIONS = { loop: true }
@@ -34,6 +35,7 @@ const Home = () => {
     <Timeline/>
     <UpcomingPackages slides={UPCOMING_SLIDES} options={UPCOMING_OPTIONS}/>
     <PopularActivities/>
+    <ThingsToEnjoy/>
     </>
   )
 }
