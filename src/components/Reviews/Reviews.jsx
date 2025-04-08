@@ -30,10 +30,10 @@ const Reviews = (props) => {
       <div className="w-full flex flex-col md:flex-row md:justify-between gap-5">
         <div className="flex flex-col xl:items-start gap-6">
           <h3 className="font-[manrope] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
-            Customer Reviews
+            Client Reviews
           </h3>
           <p className="font-[manrope] text-md md:text-lg lg:text-xl">
-            Insights from Explorers: Customer Reviews that Speak Volumes
+            Insights from explorers: client Reviews that speak volumes
           </p>
         </div>
         <div className="w-full flex justify-center md:w-fit">

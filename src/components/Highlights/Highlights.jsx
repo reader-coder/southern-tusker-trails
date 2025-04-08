@@ -1,7 +1,6 @@
 import { IKVideo } from "imagekitio-react";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { IKURL } from "../../lib";
-import { Pause, Play } from "lucide-react";
 
 const Highlights = () => {
   
