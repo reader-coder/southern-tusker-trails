@@ -61,7 +61,7 @@ const ThingsToEnjoy = () => {
         <h3 className="font-[manrope] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
           Things to Enjoy
         </h3>
-        <p className="font-[manrope] text-md md:text-lg lg:text-xl xl:2xl text-center md:text-left">
+        <p className="font-[manrope] text-md md:text-lg lg:text-xl text-center md:text-left">
           Global Adventures, Local Explorations, and the Enchantment of Kerala:
           Your Gateway to Diverse Travel Experiences!
         </p>

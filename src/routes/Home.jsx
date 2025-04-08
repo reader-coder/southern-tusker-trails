@@ -4,6 +4,7 @@ import Timeline from '../components/Timeline/Timeline'
 import UpcomingPackages from '../components/UpcomingPackages/UpcomingPackages'
 import PopularActivities from '../components/PopularActivities/PopularActivities'
 import ThingsToEnjoy from '../components/ThingsToEnjoy/ThingsToEnjoy'
+import Highlights from '../components/Highlights/Highlights'
 
 const Home = () => {
   const UPCOMING_OPTIONS = { loop: true }
@@ -36,6 +37,7 @@ const Home = () => {
     <UpcomingPackages slides={UPCOMING_SLIDES} options={UPCOMING_OPTIONS}/>
     <PopularActivities/>
     <ThingsToEnjoy/>
+    <Highlights/>
     </>
   )
 }
