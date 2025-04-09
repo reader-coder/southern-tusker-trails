@@ -6,6 +6,7 @@ import PopularActivities from "../components/PopularActivities/PopularActivities
 import ThingsToEnjoy from "../components/ThingsToEnjoy/ThingsToEnjoy";
 import Highlights from "../components/Highlights/Highlights";
 import Reviews from "../components/Reviews/Reviews";
+import Booking from "../components/Booking/Booking";
 
 const Home = () => {
   const UPCOMING_OPTIONS = { loop: true };
@@ -44,6 +45,7 @@ const Home = () => {
       <ThingsToEnjoy />
       <Highlights />
       <Reviews slides={SLIDES} options={OPTIONS}/>
+      <Booking/>
     </>
   );
 };
