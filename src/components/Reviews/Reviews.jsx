@@ -33,7 +33,7 @@ const Reviews = (props) => {
             Client Reviews
           </h3>
           <p className="font-[manrope] text-md md:text-lg lg:text-xl">
-            Insights from explorers: client Reviews that speak volumes
+            Insights from explorers: Client reviews that speak volumes
           </p>
         </div>
         <div className="w-full flex justify-center md:w-fit">
