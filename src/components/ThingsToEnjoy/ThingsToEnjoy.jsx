@@ -89,7 +89,7 @@ const ThingsToEnjoy = () => {
 
         {/* Right side grid */}
         <div ref={ref}>
-          <div className="aspect-square min-w-[200px] w-[400px] lg:min-w-[400px] lg:w-[600px] xl:lg:w-[650px] ">
+          <div className="aspect-square min-w-[200px] w-[400px] lg:min-w-[400px] lg:w-[600px] xl:lg:w-[650px] overflow-hidden">
             <div className="grid grid-cols-3 grid-rows-3 gap-8 lg:gap-12 w-full h-full rotate-45">
               {/* Row 1 */}
               <div></div>
