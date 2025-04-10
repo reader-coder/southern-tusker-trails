@@ -1,7 +1,8 @@
-import React, {useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { DateCalendar, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import emailjs from "@emailjs/browser";
 import dayjs from "dayjs";
 import {
   createTheme,
@@ -13,6 +14,13 @@ import {
   TextField,
   ThemeProvider,
 } from "@mui/material";
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_ID,
+} from "../../lib";
+import { Loader2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 const calendarTheme = createTheme({
   components: {
@@ -83,6 +91,24 @@ const Booking = () => {
     planError: false,
     dateError: false,
   });
+  const [isSending, setIsSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
+  const form = useRef();
+
+  //   Initialize EmailJS
+  useEffect(() => {
+    emailjs.init({
+      publicKey: EMAILJS_PUBLIC_KEY,
+      // Do not allow headless browsers
+      blockHeadless: true,
+      limitRate: {
+        // Set the limit rate for the application
+        id: "app",
+        // Allow 1 request per 10s
+        throttle: 10000,
+      },
+    });
+  }, []);
   const disablePastDates = (date) => {
     return dayjs(date).isBefore(dayjs().startOf("day")); // disable if before today
   };
@@ -97,8 +123,8 @@ const Booking = () => {
     const firstNameRegEx = /^[A-Za-z\s'-]+$/;
     if (!firstNameRegEx.test(name)) {
       return setErrors((prev) => ({ ...prev, firstNameError: true }));
-    } else{
-        return setErrors((prev) => ({ ...prev, firstNameError: false }));
+    } else {
+      return setErrors((prev) => ({ ...prev, firstNameError: false }));
     }
   };
 
@@ -110,7 +136,7 @@ const Booking = () => {
     if (!emailRegEx.test(email)) {
       return setErrors((prev) => ({ ...prev, emailError: true }));
     } else {
-        return setErrors((prev) => ({ ...prev, emailError: false }));
+      return setErrors((prev) => ({ ...prev, emailError: false }));
     }
   };
 
@@ -122,31 +148,69 @@ const Booking = () => {
     if (!phoneRegEx.test(phone)) {
       return setErrors((prev) => ({ ...prev, phoneError: true }));
     } else {
-        return setErrors((prev) => ({ ...prev, phoneError: false }));
+      return setErrors((prev) => ({ ...prev, phoneError: false }));
     }
   };
 
-  const planValidator = (plan)=>{
-    if(plan.length < 1 || !plan){
-        return setErrors(prev=>({...prev, planError:true}))
-    } else{
-        return setErrors(prev=>({...prev, planError:false}))
+  const planValidator = (plan) => {
+    if (plan.length < 1 || !plan) {
+      return setErrors((prev) => ({ ...prev, planError: true }));
+    } else {
+      return setErrors((prev) => ({ ...prev, planError: false }));
     }
-  }
+  };
 
-  const handleFormSubmission = (e) => {
+  const handleFormSubmission = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const firstName = formData.get("firstName");
+    const lastName = formData.get("lastName") || "";
     const email = formData.get("email");
     const phone = formData.get("phone");
     firstNameValidator(firstName);
     emailValidator(email);
     phoneValidator(phone);
-    planValidator(plan)
-    console.log(plan, errors.planError)
-    
+    planValidator(plan);
+    if (
+      errors.firstNameError ||
+      errors.lastNameError ||
+      errors.phoneError ||
+      errors.emailError ||
+      errors.planError ||
+      errors.dateError
+    ) {
+      return;
+    }
+    try {
+      setIsSending(true);
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          firstName,
+          lastName,
+          phone,
+          email,
+          plan,
+          date: dayjs(value).format("dddd DD MMMM YYYY"),
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
+      );
+      if (sendError) {
+        setSendError(false);
+      }
+      toast.success("Thank you. We will call you soon!",{
+        position:"bottom-right"
+      })
+    } catch (error) {
+      setSendError(true);
+      console.log(error);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -169,33 +233,33 @@ const Booking = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateCalendar
                 sx={{
-                    bgcolor: "black",
+                  bgcolor: "black",
+                  color: "white",
+                  borderRadius: 2,
+                  overflow: "hidden",
+                  "& .MuiPickersDay-root": {
                     color: "white",
-                    borderRadius: 2,
-                    overflow: "hidden",
-                    "& .MuiPickersDay-root": {
-                      color: "white",
-                    },
-                    "& .MuiPickersDay-root.Mui-disabled": {
-                      color: "gray !important",
-                    },
-                    "& .MuiPickersDay-root:hover": {
-                      backgroundColor: "#A5F21144",
-                    },
-                    "& .MuiTypography-root": {
-                      color: "white",
-                    },
-                    "& .MuiIconButton-root": {
-                      color: "#A5F211",
-                    },
-                    "& .MuiPickersCalendarHeader-label": {
-                      color: "white",
-                    },
-                    "& .MuiButtonBase-root-MuiPickersDay-root.Mui-selected": {
-                      backgroundColor: "#A5F211",
-                      color: "white",
-                    },
-                  }}
+                  },
+                  "& .MuiPickersDay-root.Mui-disabled": {
+                    color: "gray !important",
+                  },
+                  "& .MuiPickersDay-root:hover": {
+                    backgroundColor: "#A5F21144",
+                  },
+                  "& .MuiTypography-root": {
+                    color: "white",
+                  },
+                  "& .MuiIconButton-root": {
+                    color: "#A5F211",
+                  },
+                  "& .MuiPickersCalendarHeader-label": {
+                    color: "white",
+                  },
+                  "& .MuiButtonBase-root-MuiPickersDay-root.Mui-selected": {
+                    backgroundColor: "#A5F211",
+                    color: "white",
+                  },
+                }}
                 value={value}
                 shouldDisableDate={disablePastDates}
                 onChange={(newValue) => setValue(newValue)}
@@ -205,6 +269,7 @@ const Booking = () => {
         </div>
         <div>
           <form
+            ref={form}
             className="max-w-none lg:max-w-[600px] flex flex-col gap-3"
             onSubmit={handleFormSubmission}
           >
@@ -265,7 +330,11 @@ const Booking = () => {
               <Select
                 error={errors.planError}
                 labelId="demo-simple-select-label"
-                id={errors.planError? "demo-simple-select-error":"demo-simple-select"}
+                id={
+                  errors.planError
+                    ? "demo-simple-select-error"
+                    : "demo-simple-select"
+                }
                 value={plan}
                 label="plan"
                 onChange={(e) => handleChange(e)}
@@ -274,9 +343,11 @@ const Booking = () => {
                 <MenuItem value={20}>Twenty</MenuItem>
                 <MenuItem value={30}>Thirty</MenuItem>
               </Select>
-              {
-                errors.planError && <FormHelperText sx={{color:"#d32f2f"}}>Please select a plan</FormHelperText>
-              }
+              {errors.planError && (
+                <FormHelperText sx={{ color: "#d32f2f" }}>
+                  Please select a plan
+                </FormHelperText>
+              )}
             </FormControl>
             <span className="w-full lg:hidden">
               <ThemeProvider theme={mobCalendarTheme}>
@@ -291,12 +362,29 @@ const Booking = () => {
                 </LocalizationProvider>
               </ThemeProvider>
             </span>
-            <button
-              type="submit"
-              className="bg-[#A5F211] hover:bg-[#7ef211] transition-all duration-500 py-4 px-8 font-[manrope] w-fit font-semibold cursor-pointer"
-            >
-              Enquire
-            </button>
+            <div className="w-full flex flex-col md:flex-row md:items-center gap-3">
+              <button
+                disabled={isSending}
+                type="submit"
+                className={`w-[200px] flex justify-center items-center  transition-all duration-500 py-4 px-8 font-[manrope] font-semibold ${
+                  isSending
+                    ? "cursor-not-allowed bg-gray-200"
+                    : "cursor-pointer bg-[#A5F211] hover:bg-[#7ef211]"
+                }`}
+              >
+                {isSending ? (
+                  <span className="flex items-center gap-1">
+                    <Loader2 className="animate-spin text-black" />
+                    {"Sending..."}
+                  </span>
+                ) : (
+                  "Enquire"
+                )}
+              </button>
+              {
+                sendError && <span><p className="text-red-500 font-[manrope]">Something went wrong. Please try again!</p></span>
+              }
+            </div>
           </form>
         </div>
       </div>
