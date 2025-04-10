@@ -33,7 +33,7 @@ const Home = () => {
     },
   ];
 
-  const OPTIONS = { align: "start", loop:true };
+  const OPTIONS = { align: "start", loop: true };
   const SLIDE_COUNT = 6;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
@@ -44,8 +44,10 @@ const Home = () => {
       <PopularActivities />
       <ThingsToEnjoy />
       <Highlights />
-      <Reviews slides={SLIDES} options={OPTIONS}/>
-      <Booking/>
+      <div className="bg-[url(https://ik.imagekit.io/gzqqjuhn9/reviewsBG.png?updatedAt=1744280479668)] bg-left bg-size-[700px] bg-no-repeat">
+        <Reviews slides={SLIDES} options={OPTIONS} />
+        <Booking />
+      </div>
     </>
   );
 };
