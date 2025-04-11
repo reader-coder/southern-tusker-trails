@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Banner from "../components/Banner/Banner";
 
 const Trekking = () => {
   return (
-    <div>Trekking</div>
-  )
-}
+    <>
+      <Banner />
+    </>
+  );
+};
 
-export default Trekking
+export default Trekking;

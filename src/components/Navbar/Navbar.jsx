@@ -23,10 +23,10 @@ const Navbar = () => {
           <IKImage urlEndpoint={IKURL} path='logo.png' className='w-32 lg:w-40'/>
         </div>
         <div className='flex flex-col gap-5 py-6 px-6 text-2xl font-[manrope]'>
-          <Link to={'/'}>Home</Link>
-          <Link to={'/trekking'}>Trekking</Link>
-          <Link to={'/'}>Camping</Link>
-          <Link to={'/'}>Adventures</Link>
+          <Link to={'/'} onClick={()=>setVisible(false)}>Home</Link>
+          <Link to={'/trekking'} onClick={()=>setVisible(false)}>Trekking</Link>
+          <Link to={'/'} onClick={()=>setVisible(false)}>Camping</Link>
+          <Link to={'/'} onClick={()=>setVisible(false)}>Adventures</Link>
         </div>
     </Sidebar>
     <IKImage urlEndpoint={IKURL} path='logo.png' className='w-20 object-fill'/>
