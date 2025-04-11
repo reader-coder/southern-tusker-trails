@@ -29,7 +29,7 @@ const calendarTheme = createTheme({
         root: {
           borderRadius: "5px",
           "&.Mui-selected": {
-            backgroundColor: "#A5F211 !important", // <- force it
+            backgroundColor: "#A5F211 !important",
             color: "#000 !important",
             "&:hover": {
               backgroundColor: "#A5F211 !important",
@@ -38,7 +38,6 @@ const calendarTheme = createTheme({
         },
       },
     },
-
     MuiPaper: {
       styleOverrides: {
         root: {
@@ -58,7 +57,7 @@ const mobCalendarTheme = createTheme({
         root: {
           borderRadius: "5px",
           "&.Mui-selected": {
-            backgroundColor: "#A5F211 !important", // <- force it
+            backgroundColor: "#A5F211 !important",
             color: "#000 !important",
             "&:hover": {
               backgroundColor: "#A5F211 !important",
@@ -67,7 +66,6 @@ const mobCalendarTheme = createTheme({
         },
       },
     },
-
     MuiPaper: {
       styleOverrides: {
         root: {
@@ -95,69 +93,42 @@ const Booking = () => {
   const [sendError, setSendError] = useState(false);
   const form = useRef();
 
-  //   Initialize EmailJS
   useEffect(() => {
     emailjs.init({
       publicKey: EMAILJS_PUBLIC_KEY,
-      // Do not allow headless browsers
       blockHeadless: true,
       limitRate: {
-        // Set the limit rate for the application
         id: "app",
-        // Allow 1 request per 10s
         throttle: 10000,
       },
     });
   }, []);
+
   const disablePastDates = (date) => {
-    return dayjs(date).isBefore(dayjs().startOf("day")); // disable if before today
+    return dayjs(date).isBefore(dayjs().startOf("day"));
   };
+
   const handleChange = (event) => {
     setPlan(event.target.value);
   };
 
   const firstNameValidator = (name) => {
-    if (!name) {
-      return setErrors((prev) => ({ ...prev, firstNameError: true }));
-    }
     const firstNameRegEx = /^[A-Za-z\s'-]+$/;
-    if (!firstNameRegEx.test(name)) {
-      return setErrors((prev) => ({ ...prev, firstNameError: true }));
-    } else {
-      return setErrors((prev) => ({ ...prev, firstNameError: false }));
-    }
+    return !!name && firstNameRegEx.test(name);
   };
 
   const emailValidator = (email) => {
-    if (!email) {
-      return setErrors((prev) => ({ ...prev, emailError: true }));
-    }
     const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegEx.test(email)) {
-      return setErrors((prev) => ({ ...prev, emailError: true }));
-    } else {
-      return setErrors((prev) => ({ ...prev, emailError: false }));
-    }
+    return !!email && emailRegEx.test(email);
   };
 
   const phoneValidator = (phone) => {
-    if (!phone) {
-      return setErrors((prev) => ({ ...prev, phoneError: true }));
-    }
-    const phoneRegEx = /^\+?[0-9]{10,15}$/;
-    if (!phoneRegEx.test(phone)) {
-      return setErrors((prev) => ({ ...prev, phoneError: true }));
-    } else {
-      return setErrors((prev) => ({ ...prev, phoneError: false }));
-    }
+    const phoneRegEx = /^[0-9]{10}$/;
+    return !!phone && phoneRegEx.test(phone);
   };
 
   const planValidator = (plan) => {
-    if (plan.length < 1 || !plan) {
-      return setErrors((prev) => ({ ...prev, planError: true }));
-    } else {
-      return setErrors((prev) => ({ ...prev, planError: false }));
-    }
+    return !!plan;
   };
 
   const handleFormSubmission = async (e) => {
@@ -168,20 +139,29 @@ const Booking = () => {
     const lastName = formData.get("lastName") || "";
     const email = formData.get("email");
     const phone = formData.get("phone");
-    firstNameValidator(firstName);
-    emailValidator(email);
-    phoneValidator(phone);
-    planValidator(plan);
-    if (
-      errors.firstNameError ||
-      errors.lastNameError ||
-      errors.phoneError ||
-      errors.emailError ||
-      errors.planError ||
-      errors.dateError
-    ) {
+
+    const isFirstNameValid = firstNameValidator(firstName);
+    const isEmailValid = emailValidator(email);
+    const isPhoneValid = phoneValidator(phone);
+    const isPlanValid = planValidator(plan);
+    const isDateValid = !!value;
+
+    const newErrors = {
+      firstNameError: !isFirstNameValid,
+      lastNameError: false,
+      emailError: !isEmailValid,
+      phoneError: !isPhoneValid,
+      planError: !isPlanValid,
+      dateError: !isDateValid,
+    };
+
+    setErrors(newErrors);
+
+    const hasErrors = Object.values(newErrors).some((err) => err === true);
+    if (hasErrors) {
       return;
     }
+
     try {
       setIsSending(true);
       await emailjs.send(
@@ -202,9 +182,9 @@ const Booking = () => {
       if (sendError) {
         setSendError(false);
       }
-      toast.success("Thank you. We will call you soon!",{
-        position:"bottom-right"
-      })
+      toast.success("Thank you. We will call you soon!", {
+        position: "bottom-right",
+      });
     } catch (error) {
       setSendError(true);
       console.log(error);
@@ -276,7 +256,9 @@ const Booking = () => {
             <span className="flex justify-between gap-3">
               <TextField
                 error={errors.firstNameError}
-                helperText={errors.firstNameError ? "Provide a valid name" : ""}
+                helperText={
+                  errors.firstNameError ? "Provide a valid name" : ""
+                }
                 className="w-full"
                 required
                 id="outlined-required"
@@ -381,9 +363,13 @@ const Booking = () => {
                   "Enquire"
                 )}
               </button>
-              {
-                sendError && <span><p className="text-red-500 font-[manrope]">Something went wrong. Please try again!</p></span>
-              }
+              {sendError && (
+                <span>
+                  <p className="text-red-500 font-[manrope]">
+                    Something went wrong. Please try again!
+                  </p>
+                </span>
+              )}
             </div>
           </form>
         </div>
