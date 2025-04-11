@@ -25,8 +25,8 @@ const Navbar = () => {
         <div className='flex flex-col gap-5 py-6 px-6 text-2xl font-[manrope]'>
           <Link to={'/'} onClick={()=>setVisible(false)}>Home</Link>
           <Link to={'/trekking'} onClick={()=>setVisible(false)}>Trekking</Link>
-          <Link to={'/'} onClick={()=>setVisible(false)}>Camping</Link>
-          <Link to={'/'} onClick={()=>setVisible(false)}>Adventures</Link>
+          <Link to={'/camping'} onClick={()=>setVisible(false)}>Camping</Link>
+          <Link to={'/adventure-activities'} onClick={()=>setVisible(false)}>Adventures</Link>
         </div>
     </Sidebar>
     <IKImage urlEndpoint={IKURL} path='logo.png' className='w-20 object-fill'/>
