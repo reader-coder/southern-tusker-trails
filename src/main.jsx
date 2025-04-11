@@ -13,6 +13,9 @@ createRoot(document.getElementById('root')).render(
       <Route path='/' element={<App/>}>
       <Route index element={<Home/>}/>
       <Route path='/trekking' element={<Trekking/>}/>
+      <Route path='/camping' element={<Trekking/>}/>
+      <Route path='/adventure-activities' element={<Trekking/>}/>
+      <Route path='/nature-education' element={<Trekking/>}/>
       </Route>
     </Routes>
     </BrowserRouter>
