@@ -226,6 +226,8 @@ const PackageCarousel = () => {
           </div>
           <div className="absolute bottom-0 left-0 w-full h-[50%] py-20 bg-gradient-to-t from-white to-transparent flex items-end justify-center">
             <a
+              href="https://ik.imagekit.io/gzqqjuhn9/PDF/Yellapetty%20camp.pdf"
+              target="_blank"
               onClick={() => setSidebar((prev) => !prev)}
               className="bg-[#a5f211] w-fit px-3 py-2 rounded-md font-[manrope] text-xl mt-2 cursor-pointer flex items-center gap-2"
             >
