@@ -7,10 +7,11 @@ import {
   usePrevNextButtons,
 } from "./EmblaCarouselArrowButtonsPackageCarousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { MapPin } from "lucide-react";
+import { MapPin, X } from "lucide-react";
 import { IKImage } from "imagekitio-react";
 import { IKURL } from "../../lib";
 import PackageLineItem from "./PackageLineItem";
+import { FaFilePdf } from "react-icons/fa6";
 
 const PackageCarousel = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -138,12 +139,104 @@ const PackageCarousel = () => {
         </section>
       </div>
       {/* Overlay Sidebar */}
+      {sidebar && (
+        <div
+          onClick={() => setSidebar((prev) => !prev)}
+          className="fixed top-0 left-0 w-full h-screen backdrop-blur-md z-10 pointer-events-all"
+        ></div>
+      )}
       <div
         className={`fixed top-0 ${
           sidebar ? "right-0" : "-right-[100%]"
-        } w-[75%] h-screen bg-white
+        } w-full md:w-[75%] h-screen bg-white
          z-20 transition-all duration-300 shadow-2xl`}
-      ></div>
+      >
+        <div className="relative w-full h-full px-4 py-4 lg:py-8 xl:py-10 md:px-4 lg:px-8 xl:px-16 2xl:px-20">
+          <div className="w-full flex justify-end lg:py-4">
+            <button
+              onClick={() => setSidebar((prev) => !prev)}
+              className="bg-[#a5f211] w-fit px-3 py-2 rounded-md font-[manrope] text-xl mt-2 cursor-pointer"
+            >
+              <X />
+            </button>
+          </div>
+          <div className="h-full overflow-y-scroll">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt
+              velit, esse earum eveniet sapiente nostrum voluptates ut animi
+              libero vitae porro nam maiores sed officiis ipsum eum ducimus
+              numquam sint sit accusamus quasi pariatur. Perferendis id
+              molestias aperiam nemo accusamus sequi ad ratione minima beatae
+              temporibus nobis, porro in. Sapiente consequuntur ipsum excepturi
+              inventore, mollitia, sit nemo voluptatem aliquid temporibus, culpa
+              consequatur aspernatur? Adipisci facilis cumque beatae laudantium
+              ad aliquam quisquam, quos expedita praesentium! Odio laborum
+              maxime eligendi dicta placeat corrupti fugit ipsa ipsum optio
+              repellendus, illo laboriosam tenetur? A aspernatur unde pariatur
+              accusantium neque commodi quidem, expedita quisquam nisi labore
+              iure inventore ducimus quos eveniet deserunt voluptates modi
+              cumque, reprehenderit maxime consequuntur hic similique? Minima
+              temporibus nostrum, quam eos cumque, voluptatem earum aut dolor
+              saepe cum sed cupiditate incidunt accusantium, quibusdam id
+              mollitia nesciunt labore maiores at. Perspiciatis sint, eligendi
+              voluptatum quisquam quidem fuga! Aspernatur delectus accusantium
+              at vitae asperiores adipisci maiores sed. Vel aliquid laborum
+              adipisci beatae rerum assumenda corporis! Nam distinctio quo
+              placeat odit animi harum possimus totam tempora eveniet quidem
+              explicabo culpa velit veritatis impedit, laudantium ullam!
+              Perspiciatis esse illum aperiam officia necessitatibus non, hic
+              quasi molestias quis autem alias assumenda voluptas. Veniam modi
+              facere ipsum? In natus corrupti, aliquid ab doloremque perferendis
+              tempore esse eos maxime quia similique facilis autem officia
+              quaerat, repellat ipsum. Amet, totam explicabo dolorum
+              voluptatibus sint dolor ipsam atque modi omnis eius, maiores
+              quidem officiis corporis qui pariatur quas, accusantium sit vitae
+              eos animi voluptas accusamus! Dolores, deleniti vitae? Soluta
+              mollitia natus quis quibusdam. Autem pariatur fugit quisquam atque
+              nam animi eos, ipsam vero aliquam, nihil nulla ea vitae deserunt,
+              harum vel maxime beatae sequi laboriosam maiores suscipit quam
+              praesentium ab. Praesentium quia odit eos aspernatur quas totam
+              necessitatibus fugit modi veniam aliquam, facere, provident vero
+              repellendus optio cupiditate eligendi deserunt corporis quisquam
+              blanditiis debitis nostrum esse. Dignissimos rerum quod omnis
+              neque ratione labore esse asperiores totam facilis sapiente,
+              dolorum sint voluptas possimus, sequi ad repellendus iure aut
+              accusantium tempora est, tenetur eius quia. Laboriosam vel odio
+              nemo, mollitia consequuntur sed ipsum inventore quo ea, molestiae,
+              asperiores ipsa delectus facilis possimus deserunt pariatur
+              dignissimos beatae nesciunt consequatur quos? Animi est hic
+              tempora totam expedita in aliquid molestiae non consequatur natus
+              nisi ipsam, laborum itaque eligendi perferendis fugiat aut illum
+              nemo, temporibus veritatis doloremque at corrupti neque? Numquam,
+              corporis? Alias repellendus culpa deleniti sequi non architecto
+              consequuntur corrupti! Explicabo itaque eligendi quod deserunt
+              unde, excepturi porro error labore repellendus impedit aut nemo
+              accusamus harum vero doloribus aspernatur vel debitis et, esse
+              provident sequi, non obcaecati magnam. In esse placeat omnis.
+              Commodi itaque totam ipsum aperiam sit quibusdam vero ex labore
+              error optio. Deleniti id quas hic est. Reprehenderit vel et
+              commodi sint soluta ea. Molestias ullam doloribus eum corrupti
+              temporibus aut itaque perferendis alias dolor, rem vitae placeat
+              qui quam aliquid maiores sequi fugiat vel porro est. Iusto ratione
+              ducimus, aliquam reprehenderit, quasi autem molestiae vitae
+              temporibus est magnam accusantium optio perspiciatis libero
+              repudiandae beatae sed cum assumenda. Eveniet, accusantium! Eius,
+              facilis?
+            </p>
+          </div>
+          <div className="absolute bottom-0 left-0 w-full h-[50%] py-20 bg-gradient-to-t from-white to-transparent flex items-end justify-center">
+            <a
+              onClick={() => setSidebar((prev) => !prev)}
+              className="bg-[#a5f211] w-fit px-3 py-2 rounded-md font-[manrope] text-xl mt-2 cursor-pointer flex items-center gap-2"
+            >
+              <span>
+                <FaFilePdf />
+              </span>
+              View more
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
