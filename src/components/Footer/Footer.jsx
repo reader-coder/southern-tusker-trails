@@ -15,7 +15,7 @@ const Footer = () => {
   ];
   return (
     <div className="h-fit px-8 lg:px-20 xl:px-32 2xl:px-56 pt-20 xl:pt-24 2xl:pt-40 bg-[url(https://ik.imagekit.io/gzqqjuhn9/footerBG.png)] bg-cover bg-center bg-no-repeat flex flex-col gap-24">
-        {/* Top */}
+      {/* Top */}
       <div className="flex flex-col md:grid md:grid-cols-3 gap-10 xl:gap-10 2xl:gap-20">
         {/* Left */}
         <div className="flex flex-col gap-4">
@@ -44,22 +44,31 @@ const Footer = () => {
         {/* Right */}
         <div className="flex flex-col gap-4">
           <h4 className="font-[manrope] font-semibold text-xl">Follow us on</h4>
-          <a
-            href="https://www.instagram.com/southerntuskertrails"
-            target="_blank"
-          >
-            <div className="flex gap-3">
+          <div className="flex gap-4">
+            <a
+              href="https://www.instagram.com/southerntuskertrails"
+              target="_blank"
+              className="inline"
+            >
               <div className="p-3 rounded-full border-2 border-black">
                 <FaInstagram className="size-6" />
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
       {/* Bottom */}
       <div className="py-6 flex flex-col md:flex-row gap-2 items-center md:justify-between text-sm md:text-lg">
-        <p className="flex gap-1 items-center font-[manrope]"><Copyright className="size-4"/>{new Date().getFullYear()} {"Southern Tusker Trails India"}</p>
-        <p className="font-[manrope]">Powered by <a className="font-bold" href="https://codesvera.com/">Codesvera</a></p>
+        <p className="flex gap-1 items-center font-[manrope]">
+          <Copyright className="size-4" />
+          {new Date().getFullYear()} {"Southern Tusker Trails India"}
+        </p>
+        <p className="font-[manrope]">
+          Powered by{" "}
+          <a className="font-bold" href="https://codesvera.com/">
+            Codesvera
+          </a>
+        </p>
       </div>
     </div>
   );
