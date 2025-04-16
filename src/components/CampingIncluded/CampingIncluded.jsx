@@ -13,24 +13,24 @@ const CampingIncluded = () => {
       <h3 className="font-[manrope] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
         What's Included
       </h3>
-      <div className="w-full items-stretch grid grid-cols-2 grid-rows-2 gap-20">
+      <div className="w-full items-stretch grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-20">
         <div className="w-full h-full flex flex-col gap-4">
           <IKImage
             urlEndpoint={IKURL}
             path="Inclusion1.png"
-            className="rounded-br-[15rem]"
+            className="md:rounded-br-[15rem]"
           />
-          <p className="text-white font-[manrope] text-3xl">
+          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl">
             Bonfire & BBQ setup
           </p>
         </div>
-        <div className="w-full h-full flex flex-col items-end gap-4">
+        <div className="w-full h-full flex flex-col md:items-end gap-4">
           <IKImage
             urlEndpoint={IKURL}
             path="Inclusion2.png"
-            className="rounded-bl-[15rem]"
+            className="md:rounded-bl-[15rem]"
           />
-          <p className="text-white font-[manrope] text-3xl">
+          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl md:text-right">
             Comfortable tents & sleeping bags
           </p>
         </div>
@@ -38,19 +38,19 @@ const CampingIncluded = () => {
           <IKImage
             urlEndpoint={IKURL}
             path="Inclusion2.png"
-            className="rounded-tr-[15rem]"
+            className="md:rounded-tr-[15rem]"
           />
-          <p className="text-white font-[manrope] text-3xl">
+          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl">
             Safety & first-aid support
           </p>
         </div>
-        <div className="w-full h-full flex flex-col items-end gap-4">
+        <div className="w-full h-full flex flex-col md:items-end gap-4">
           <IKImage
             urlEndpoint={IKURL}
             path="Inclusion1.png"
-            className="rounded-tl-[15rem]"
+            className="md:rounded-tl-[15rem]"
           />
-          <p className="text-white font-[manrope] text-3xl">
+          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl md:text-right">
             Guided nature walks & activities
           </p>
         </div>
