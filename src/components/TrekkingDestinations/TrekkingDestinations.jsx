@@ -8,6 +8,8 @@ import {
 } from "./EmblaCarouselArrowButtonsTrekkingDestinations";
 import useEmblaCarousel from "embla-carousel-react";
 import { MapPin } from "lucide-react";
+import { IKImage } from "imagekitio-react";
+import { IKURL } from "../../lib";
 
 const TrekkingDestinations = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -80,16 +82,18 @@ const TrekkingDestinations = () => {
               {slides.map((item) => (
                 <div className={styles.embla__slide} key={item.id}>
                   <div className={styles.embla__slide__number}>
-                    <div
-                      className="w-full h-full py-4 flex flex-col justify-end bg-cover bg-center bg-no-repeat"
-                      style={{ backgroundImage: `url(${item.imgPath})` }}
-                    >
-                      <div className="bg-[#A5F211] w-fit px-4 py-2 flex items-center gap-1.5 rounded-tr-2xl rounded-br-2xl">
+                    <div className="w-full h-full py-4 flex flex-col justify-end items-center gap-2.5">
+                      <IKImage
+                        urlEndpoint={IKURL}
+                        path="campingDest2.png"
+                        className="rounded-full h-full"
+                      />
+                      <span className="rounded-xl px-6 flex items-center gap-2 py-2 w-fit bg-[#A5F211]">
                         <MapPin className="size-5" />
-                        <p className="font-[manrope] text-sm sm:text-lg md:text-xl">
-                          {item.name}
-                        </p>
-                      </div>
+                        <h5 className="font-[manrope] text-sm md:text-xl">
+                          Trekking Destination
+                        </h5>
+                      </span>
                     </div>
                   </div>
                 </div>
