@@ -36,7 +36,7 @@ const TrekkingWhyChoose = () => {
   return (
     <div className="h-fit px-8 lg:px-20 xl:px-32 2xl:px-56 py-20 xl:py-24 2xl:py-40 flex flex-col gap-12 bg-[url(https://ik.imagekit.io/gzqqjuhn9/reviewsBG.png?updatedAt=1744280479668)] bg-contain bg-no-repeat bg-right">
       <h3 className="font-[manrope] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
-        What's Included
+        Why Choose Us
       </h3>
       <div className="w-full lg:grid grid-cols-2">
         <div className="h-full flex flex-col gap-12 justify-center">

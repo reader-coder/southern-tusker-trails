@@ -12,7 +12,7 @@ const TrekkingIncluded = () => {
       />
       <div className="flex flex-col gap-14 max-w-[1600px]">
         <h3 className="font-[manrope] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
-          Why Choose Us
+          What's Included
         </h3>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-stretch h-fit md:h-[350px] lg:h-[550px]">
           <div className="w-full h-full flex flex-col gap-4 items-center">
