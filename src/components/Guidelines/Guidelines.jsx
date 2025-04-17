@@ -53,7 +53,7 @@ const Guidelines = () => {
           <h3 className="font-[manrope] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
             Guidelines
           </h3>
-          <Accordion className="w-full flex flex-col gap-5">
+          <Accordion activeIndex={0} className="w-full flex flex-col gap-5">
             {accordionContent.map((item) => (
               <AccordionTab
                 key={item.id}
