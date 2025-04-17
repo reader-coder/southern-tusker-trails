@@ -67,3 +67,7 @@ body {
     animation: bg-zoomout 1.5s ease-in-out forwards;
   }
 }
+
+.hiddenClass {
+  display: none;
+}
