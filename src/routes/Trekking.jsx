@@ -3,6 +3,7 @@ import Banner from "../components/Banner/Banner";
 import TrekkingDestinations from "../components/TrekkingDestinations/TrekkingDestinations";
 import PackageCarousel from "../components/PackageCarousel/PackageCarousel";
 import TrekkingIncluded from "../components/TrekkingIncluded/TrekkingIncluded";
+import TrekkingWhyChoose from "../components/TrekkingWhyChoose/TrekkingWhyChoose";
 
 //Exports a Heading component because the heading can have <br/> tags at unpredictable places. So, we can handle it individually and pass it as a component so that we don't have to handle it in the Banner component
 const bannerHeading = () => {
@@ -22,6 +23,7 @@ const Trekking = () => {
       <TrekkingDestinations />
       <PackageCarousel />
       <TrekkingIncluded />
+      <TrekkingWhyChoose />
     </>
   );
 };

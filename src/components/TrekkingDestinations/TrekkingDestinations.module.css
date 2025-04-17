@@ -3,12 +3,12 @@
   max-width: 100rem;
   margin-left: auto;
 
-  --slide-height: 22rem;
+  --slide-height: 24rem;
   --slide-spacing: 1rem;
   --slide-size: 100%;
-  --slide-spacing-sm: 1.6rem;
+  --slide-spacing-sm: 4rem;
   --slide-size-sm: 50%;
-  --slide-spacing-lg: 2rem;
+  --slide-spacing-lg: 8rem;
   --slide-size-lg: calc(100% / 2);
 }
 .embla__viewport {
@@ -78,7 +78,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: var(--slide-height);
+  /* height: var(--slide-height); */
+  height: fit-content;
   user-select: none;
 }
 .embla__controls {

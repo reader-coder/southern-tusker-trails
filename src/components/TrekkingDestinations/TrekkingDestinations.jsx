@@ -53,7 +53,7 @@ const TrekkingDestinations = () => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <div className="h-fit px-8 lg:pl-20 xl:pl-32 2xl:pl-56 py-20 xl:py-24 2xl:py-30 flex flex-col gap-6 overflow-x-hidden  2xl:flex 2xl:w-full 2xl:justify-center [@media(min-width:2000px)]:items-center [@media(min-width:2000px)]:px-56">
+    <div className="h-fit px-8 lg:pl-20 xl:pl-32 2xl:pl-56 py-20 xl:py-24 2xl:py-30 flex flex-col gap-12 overflow-x-hidden  2xl:flex 2xl:w-full 2xl:justify-center [@media(min-width:2000px)]:items-center [@media(min-width:2000px)]:px-56">
       {/* Heading and nav buttons container */}
       <div className="w-full flex flex-col items-center md:flex-row md:justify-between gap-5 pr-0 lg:pr-10 xl:pr-20 2xl:pr-40 [@media(min-width:2000px)]:max-w-[1600px]">
         <h3 className="font-[manrope] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
