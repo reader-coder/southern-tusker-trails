@@ -27,6 +27,7 @@ const Navbar = () => {
           <Link to={'/trekking'} onClick={()=>setVisible(false)}>Trekking</Link>
           <Link to={'/camping'} onClick={()=>setVisible(false)}>Camping</Link>
           <Link to={'/adventure-activities'} onClick={()=>setVisible(false)}>Adventures</Link>
+          <Link to={"/nature-education"} onClick={()=>setVisible(false)}>Nature Education</Link>
         </div>
     </Sidebar>
     <IKImage urlEndpoint={IKURL} path='logo.png' className='w-20 object-fill'/>

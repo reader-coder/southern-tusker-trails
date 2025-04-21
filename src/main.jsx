@@ -7,6 +7,7 @@ import Home from './routes/Home.jsx';
 import Trekking from './routes/Trekking.jsx';
 import Camping from './routes/Camping.jsx';
 import Adventures from './routes/Adventures.jsx';
+import NatureEd from './routes/NatureEd.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,7 +18,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/trekking' element={<Trekking/>}/>
       <Route path='/camping' element={<Camping/>}/>
       <Route path='/adventure-activities' element={<Adventures/>}/>
-      <Route path='/nature-education' element={<Trekking/>}/>
+      <Route path='/nature-education' element={<NatureEd/>}/>
       </Route>
     </Routes>
     </BrowserRouter>
