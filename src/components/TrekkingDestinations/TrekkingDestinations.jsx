@@ -20,30 +20,41 @@ const TrekkingDestinations = () => {
   const slides = [
     {
       id: 0,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest1.png",
-      name: "Chokramudi Peak Camping",
+      imgPath: "Letchmi_hills", 
+      name: "Letchmi Hills"
     },
     {
       id: 1,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest2.png",
-      name: "Kundala Lake Camping",
+      imgPath: "Chokramudi-Peak.jpg", // Add image path
+      name: "Chokkarmudi"
     },
     {
       id: 2,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest3.png",
-      name: "Mattupetty Dam Camping",
+      imgPath: "top-valley", // Add image path
+      name: "Top Valley"
     },
     {
       id: 3,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest3.png",
-      name: "Mattupetty Dam Camping",
+      imgPath: "Meeahapullimala.jpg", // Add image path
+      name: "Meesapulimalai"
     },
     {
       id: 4,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest3.png",
-      name: "Mattupetty Dam Camping",
+      imgPath: "kolukumalai", // Add image path
+      name: "Kolukkumalai"
     },
+    {
+      id: 5,
+      imgPath: "chinnar", // Add image path
+      name: "Chinnar Wildlife Sanctuary"
+    },
+    {
+      id: 6,
+      imgPath: "pambadum_shola.jpg", // Add image path
+      name: "Pambadum Shola National Park"
+    }
   ];
+  
 
   const {
     prevBtnDisabled,
@@ -85,13 +96,13 @@ const TrekkingDestinations = () => {
                     <div className="w-full h-full py-4 flex flex-col justify-end items-center gap-2.5">
                       <IKImage
                         urlEndpoint={IKURL}
-                        path="campingDest2.png"
-                        className="rounded-full h-full"
+                        path={item.imgPath ||"campingDest2.png"}
+                        className="rounded-full min-h-[500px] object-cover"
                       />
                       <span className="rounded-xl px-6 flex items-center gap-2 py-2 w-fit bg-[#A5F211]">
                         <MapPin className="size-5" />
                         <h5 className="font-[manrope] text-sm md:text-xl">
-                          Trekking Destination
+                          {item.name}
                         </h5>
                       </span>
                     </div>

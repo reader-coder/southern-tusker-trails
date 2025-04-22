@@ -12,7 +12,7 @@ const WhyComponent = ({heading, list}) => {
        <div className='flex flex-col gap-5'>
     {
         list.map((listItem)=>(
-           <div className='flex flex-col gap-3'>
+           <div key={listItem.id} className='flex flex-col gap-3'>
              <div className='flex gap-4 items-center'>
                 <span className='flex items-center justify-center p-2 bg-black rounded-full'>
                     <IKImage urlEndpoint={IKURL} path="greenLeaf.png" className=' size-3'/>

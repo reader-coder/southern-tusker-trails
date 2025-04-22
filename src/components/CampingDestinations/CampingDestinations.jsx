@@ -18,28 +18,23 @@ const CampingDestinations = () => {
   const slides = [
     {
       id: 0,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest1.png",
-      name: "Chokramudi Peak Camping",
+      imgPath: "https://ik.imagekit.io/gzqqjuhn9/kolukumalai?updatedAt=1745315615561",
+      name: "Kolukkumalai",
     },
     {
       id: 1,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest2.png",
-      name: "Kundala Lake Camping",
+      imgPath: "https://ik.imagekit.io/gzqqjuhn9/suryanelli?updatedAt=1745315713958",
+      name: " Suryanelli",
     },
     {
       id: 2,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest3.png",
-      name: "Mattupetty Dam Camping",
+      imgPath: "https://ik.imagekit.io/gzqqjuhn9/yellapetty.jpg?updatedAt=1745315886001",
+      name: "Yellapetty",
     },
     {
       id: 3,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest3.png",
-      name: "Mattupetty Dam Camping",
-    },
-    {
-      id: 4,
-      imgPath: "https://ik.imagekit.io/gzqqjuhn9/campingDest3.png",
-      name: "Mattupetty Dam Camping",
+      imgPath: "https://ik.imagekit.io/gzqqjuhn9/Meeahapullimala.jpg?updatedAt=1745315969188",
+      name: "Meeshappulimala",
     },
   ];
 
