@@ -7,12 +7,55 @@ import {
 } from "./EmblaCarouselArrowButtonsReviews";
 import useEmblaCarousel from "embla-carousel-react";
 import styles from "./Reviews.module.css";
-import { Quote } from "lucide-react";
 import { FaQuoteLeft } from "react-icons/fa6";
 import { IKImage } from "imagekitio-react";
 import { IKURL } from "../../lib";
 
 const Reviews = (props) => {
+  const reviews = [
+    {
+      id: 0,
+      name: "Aarav Menon",
+      review: "Southern Tusker Trails made our Munnar trek unforgettable. From scenic paths to kind guides, everything was perfect. Every moment felt curated. Truly a great escape into nature’s lap!"
+    },
+    {
+      id: 1,
+      name: "Neha Suresh",
+      review: "Absolutely thrilling! The sunrise hike, campfire vibes, and great food made it amazing. Southern Tusker Trails blended safety, fun, and adventure into one unforgettable experience!"
+    },
+    {
+      id: 2,
+      name: "Rohit Varma",
+      review: "Went with friends and had a blast! The entire trip was smooth—right from travel to camping. The team at Southern Tusker Trails handled everything with care. Loved the Munnar views too!"
+    },
+    {
+      id: 3,
+      name: "Divya Krishnan",
+      review: "What a weekend! Southern Tusker Trails gave us great trails, cheerful guides, and cozy camps. The trek was full of fun, laughter, and memories. Highly recommended for a refreshing break!"
+    },
+    {
+      id: 4,
+      name: "Karan Nair",
+      review: "Challenging yet fun! The climb, the views, and the vibe—everything was spot on. Southern Tusker Trails planned every detail well. Nature lovers, this is your perfect Munnar getaway!"
+    },
+    {
+      id: 5,
+      name: "Sneha Ramesh",
+      review: "Our Munnar trek with Southern Tusker Trails was smooth and scenic. From pickup to camping, it was top-notch. The team’s warmth and planning made it a perfect escape into the wild."
+    },
+    {
+      id: 6,
+      name: "Vishnu Raj",
+      review: "Best trekking experience ever! Southern Tusker Trails made it memorable with their detailed planning and lovely guides. Loved the bonfire nights and serene sunrise from the peaks!"
+    },
+    {
+      id: 7,
+      name: "Meera Thomas",
+      review: "From the trails to the tents, every part was great! Southern Tusker Trails offered a fun, safe, and scenic adventure. Would surely return for another peaceful trek in the Munnar hills."
+    }
+  ];
+  
+  
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
@@ -55,25 +98,21 @@ const Reviews = (props) => {
         <section className={styles.embla}>
           <div className={styles.embla__viewport} ref={emblaRef}>
             <div className={styles.embla__container}>
-              {slides.map((index) => (
-                <div className={styles.embla__slide} key={index}>
+              {reviews.map((item) => (
+                <div className={styles.embla__slide} key={item.id}>
                   <div className={styles.embla__slide__number}>
                     <div className="w-full h-full flex flex-col">
                       <div className="w-full h-full bg-[#A5F211] px-8 py-4">
                         <FaQuoteLeft className="size-6 mb-6" />
-                        <p className="font-[manrope] text-sm">Tours and Travel was an absolute adventure extravaganza! From the moment we landed to the last goodbye, every detail was meticulously planned. The itinerary was diverse</p>
+                        <p className="font-[manrope] text-sm ">{item.review}</p>
                       </div>
                       <div className="h-40 w-full bg-black relative">
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 flex flex-col items-center gap-2">
                           {/* Image container */}
                           <div className="rounded-full size-20 overflow-hidden">
-                            <img
-                              className="object-cover"
-                              src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                              alt="review"
-                            />
+                            <IKImage urlEndpoint={IKURL} path="user.png"/>
                           </div>
-                          <p className="text-white font-[manrope]">MATHEWS</p>
+                          <p className="text-white font-[manrope]">{item.name}</p>
                         </div>
                       </div>
                     </div>

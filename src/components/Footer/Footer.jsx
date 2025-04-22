@@ -42,7 +42,8 @@ const Footer = () => {
           </div>
         </div>
         {/* Right */}
-        <div className="flex flex-col gap-4">
+       <div className="flex flex-col gap-4 sm:flex-row md:flex-col justify-between md:justify-start md:gap-4">
+       <div className="flex flex-col gap-4">
           <h4 className="font-[manrope] font-semibold text-xl">Follow us on</h4>
           <div className="flex gap-4">
             <a
@@ -56,6 +57,15 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <div className="flex flex-col gap-4">
+          <h4 className="font-[manrope] font-semibold text-xl">Contact Details</h4>
+          <div className="flex flex-col gap-2 text-lg font-[manrope]">
+            <a href="tel:9633996929">Ph: 9633996929</a>
+            <a href="mailto:sample@mail.com">Email: @</a>
+            <p>Address: 521/09, Kuttiyar valley, Munnar</p>
+          </div>
+        </div>
+       </div>
       </div>
       {/* Bottom */}
       <div className="py-6 flex flex-col md:flex-row gap-2 items-center md:justify-between text-sm md:text-lg">

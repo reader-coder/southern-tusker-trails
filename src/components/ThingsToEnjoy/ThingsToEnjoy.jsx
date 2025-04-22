@@ -21,28 +21,28 @@ const ThingsToEnjoy = () => {
   const items = [
     {
       id: 0,
-      name: "Munnar Tea Valley",
-      img: "https://images.unsplash.com/photo-1559147861-32715680aef8?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Tea Plantation Walks",
+      img: "https://ik.imagekit.io/gzqqjuhn9/tea_plantation_walks?updatedAt=1745229120202",
     },
     {
       id: 1,
-      name: "Munnar Tea Trails",
-      img: "https://images.unsplash.com/photo-1586753080433-3b98668a4085?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Tea Culture Experience",
+      img: "https://ik.imagekit.io/gzqqjuhn9/tea_cult_experience?updatedAt=1745229186313",
     },
     {
       id: 2,
-      name: "Kalari Kshetra",
-      img: "https://images.unsplash.com/photo-1660994114571-b32ff7c2d310?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Shola Forests Treks",
+      img: "https://ik.imagekit.io/gzqqjuhn9/Shola.jpg?updatedAt=1745228586951",
     },
     {
       id: 3,
-      name: "Attukal Waterfalls",
-      img: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Off-Road Jeep Safaris",
+      img: "https://ik.imagekit.io/gzqqjuhn9/Jeep_safar.webp?updatedAt=1745228747327",
     },
     {
       id: 4,
-      name: "Rose Gardens",
-      img: "https://images.unsplash.com/photo-1572085313466-6710de8d7ba3?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Wildlife Photography Expeditions",
+      img: "https://ik.imagekit.io/gzqqjuhn9/wild_photo.jpg?updatedAt=1745228936388",
     },
   ];
 
@@ -62,8 +62,7 @@ const ThingsToEnjoy = () => {
           Things to Enjoy
         </h3>
         <p className="font-[manrope] text-md md:text-lg lg:text-xl text-center md:text-left">
-          Global Adventures, Local Explorations, and the Enchantment of Kerala:
-          Your Gateway to Diverse Travel Experiences!
+        Explore the trails once walked by majestic tuskers, immersing yourself in nature's untamed beauty with expert-guided adventures.
         </p>
       </div>
       <div className="flex flex-col gap-4 items-center xl:grid xl:grid-cols-2 xl:items-stretch  xl:gap-10">
