@@ -5,12 +5,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import emailjs from "@emailjs/browser";
 import dayjs from "dayjs";
 import {
+  Checkbox,
   createTheme,
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  Select,
+  FormControlLabel,
+  FormGroup,
   TextField,
   ThemeProvider,
 } from "@mui/material";
@@ -91,7 +89,38 @@ const Booking = () => {
   });
   const [isSending, setIsSending] = useState(false);
   const [sendError, setSendError] = useState(false);
+  const [trekking, setTrekking] = useState(false);
+  const [camping, setCamping] = useState(false);
+  const [adventure, setAdventure] = useState(false);
+  const [natureEd, setNatureEd] = useState(false);
+
+  const [selectedTrekkingItems, setSelectedTrekkingItems] = useState([]);
+  const [selectedCampingItems, setSelectedCampingItems] = useState([]);
+  const [selectedAdventureItems, setSelectedAdventureItems] = useState([]);
+
   const form = useRef();
+
+  const trekkingItems = [
+    "Letchmi Hills",
+    "Chokkarmudi",
+    "Top Valley",
+    "Meesapulimalai",
+    "Kolukkumalai",
+    "Chinnar Wildlife Sanctury",
+    "Pambadum Shola National Park",
+  ];
+  const campingItems = [
+    "Kolukkumalai Sunrise Camp",
+    "Yellapetty Camp",
+    "Meesapulimalai Camp",
+  ];
+  const adventureItems = [
+    "Zip-line",
+    "Mountaineering",
+    "Rock climbing & Rappelling",
+    "Kayaking",
+    "Mountain cycling",
+  ];
 
   useEffect(() => {
     emailjs.init({
@@ -108,28 +137,30 @@ const Booking = () => {
     return dayjs(date).isBefore(dayjs().startOf("day"));
   };
 
-  const handleChange = (event) => {
-    setPlan(event.target.value);
+  const handleTrekkingItemChange = (item) => {
+    setSelectedTrekkingItems((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
   };
 
-  const firstNameValidator = (name) => {
-    const firstNameRegEx = /^[A-Za-z\s'-]+$/;
-    return !!name && firstNameRegEx.test(name);
+  const handleCampingItemChange = (item) => {
+    setSelectedCampingItems((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
   };
 
-  const emailValidator = (email) => {
-    const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return !!email && emailRegEx.test(email);
+  const handleAdventureItemChange = (item) => {
+    setSelectedAdventureItems((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
   };
+  
 
-  const phoneValidator = (phone) => {
-    const phoneRegEx = /^[0-9]{10}$/;
-    return !!phone && phoneRegEx.test(phone);
-  };
-
-  const planValidator = (plan) => {
-    return !!plan;
-  };
+  const firstNameValidator = (name) => /^[A-Za-z\s'-]+$/.test(name);
+  const emailValidator = (email) =>
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+  const phoneValidator = (phone) => /^[0-9]{10}$/.test(phone);
+  const planValidator = (plan) => !!plan;
 
   const handleFormSubmission = async (e) => {
     e.preventDefault();
@@ -143,7 +174,6 @@ const Booking = () => {
     const isFirstNameValid = firstNameValidator(firstName);
     const isEmailValid = emailValidator(email);
     const isPhoneValid = phoneValidator(phone);
-    const isPlanValid = planValidator(plan);
     const isDateValid = !!value;
 
     const newErrors = {
@@ -151,16 +181,14 @@ const Booking = () => {
       lastNameError: false,
       emailError: !isEmailValid,
       phoneError: !isPhoneValid,
-      planError: !isPlanValid,
+      planError: false,
       dateError: !isDateValid,
     };
 
     setErrors(newErrors);
 
     const hasErrors = Object.values(newErrors).some((err) => err === true);
-    if (hasErrors) {
-      return;
-    }
+    if (hasErrors) return;
 
     try {
       setIsSending(true);
@@ -172,16 +200,15 @@ const Booking = () => {
           lastName,
           phone,
           email,
-          plan,
           date: dayjs(value).format("dddd DD MMMM YYYY"),
+          trekking: trekking ? selectedTrekkingItems.join(", ") || "N/A" : "N/A",
+          camping: camping? selectedCampingItems.join(", ") || "N/A": "N/A",
+          adventure: adventure ? selectedAdventureItems.join(", ") || "N/A" : "N/A",
+          natureEducation: natureEd ? "Yes" : "No"
         },
-        {
-          publicKey: EMAILJS_PUBLIC_KEY,
-        }
+        { publicKey: EMAILJS_PUBLIC_KEY }
       );
-      if (sendError) {
-        setSendError(false);
-      }
+      if (sendError) setSendError(false);
       toast.success("Thank you. We will call you soon!", {
         position: "bottom-right",
       });
@@ -235,10 +262,6 @@ const Booking = () => {
                   "& .MuiPickersCalendarHeader-label": {
                     color: "white",
                   },
-                  "& .MuiButtonBase-root-MuiPickersDay-root.Mui-selected": {
-                    backgroundColor: "#A5F211",
-                    color: "white",
-                  },
                 }}
                 value={value}
                 shouldDisableDate={disablePastDates}
@@ -256,19 +279,15 @@ const Booking = () => {
             <span className="flex justify-between gap-3">
               <TextField
                 error={errors.firstNameError}
-                helperText={
-                  errors.firstNameError ? "Provide a valid name" : ""
-                }
+                helperText={errors.firstNameError ? "Provide a valid name" : ""}
                 className="w-full"
                 required
-                id="outlined-required"
                 label="First Name"
                 name="firstName"
               />
               <TextField
                 helperText=""
                 className="w-full"
-                id="outlined"
                 label="Last Name"
                 name="lastName"
               />
@@ -279,7 +298,6 @@ const Booking = () => {
                 errors.emailError ? "Please provide a valid email" : ""
               }
               className="w-full"
-              id="outlined"
               label="Email"
               name="email"
               type="email"
@@ -293,7 +311,6 @@ const Booking = () => {
               }
               className="w-full"
               required
-              id="outlined-required"
               label="Phone"
               name="phone"
               type="tel"
@@ -302,35 +319,100 @@ const Booking = () => {
               <TextField
                 className="w-full"
                 disabled
-                id="outlined-disabled"
                 label="Date"
                 value={dayjs(value).format("dddd DD MMMM YYYY")}
               />
             </span>
-            <FormControl>
-              <InputLabel id="demo-simple-select-label">Plan *</InputLabel>
-              <Select
-                error={errors.planError}
-                labelId="demo-simple-select-label"
-                id={
-                  errors.planError
-                    ? "demo-simple-select-error"
-                    : "demo-simple-select"
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={trekking}
+                    size="large"
+                    onChange={() => setTrekking((prev) => !prev)}
+                  />
                 }
-                value={plan}
-                label="plan"
-                onChange={(e) => handleChange(e)}
-              >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-              {errors.planError && (
-                <FormHelperText sx={{ color: "#d32f2f" }}>
-                  Please select a plan
-                </FormHelperText>
+                label="Trekking"
+              />
+              {trekking && (
+                <div className="flex flex-wrap gap-2">
+                  {trekkingItems.map((item) => (
+                    <FormControlLabel
+                      key={item}
+                      control={
+                        <Checkbox
+                          checked={selectedTrekkingItems.includes(item)}
+                          onChange={() => handleTrekkingItemChange(item)}
+                        />
+                      }
+                      label={item}
+                    />
+                  ))}
+                </div>
               )}
-            </FormControl>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={camping}
+                    size="large"
+                    onChange={() => setCamping((prev) => !prev)}
+                  />
+                }
+                label="Camping"
+              />
+              {camping && (
+                <div className="flex flex-wrap gap-2">
+                  {campingItems.map((item) => (
+                    <FormControlLabel
+                      key={item}
+                      control={
+                        <Checkbox
+                          checked={selectedCampingItems.includes(item)}
+                          onChange={() => handleCampingItemChange(item)}
+                        />
+                      }
+                      label={item}
+                    />
+                  ))}
+                </div>
+              )}
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={adventure}
+                    size="large"
+                    onChange={() => setAdventure((prev) => !prev)}
+                  />
+                }
+                label="Adventure Activities"
+              />
+              {adventure && (
+                <div className="flex flex-wrap gap-2">
+                  {adventureItems.map((item) => (
+                    <FormControlLabel
+                      key={item}
+                      control={
+                        <Checkbox
+                          checked={selectedAdventureItems.includes(item)}
+                          onChange={() => handleAdventureItemChange(item)}
+                        />
+                      }
+                      label={item}
+                    />
+                  ))}
+                </div>
+              )}
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={natureEd}
+                    size="large"
+                    onChange={() => setNatureEd((prev) => !prev)}
+                  />
+                }
+                label="Nature Education"
+              />
+            </FormGroup>
             <span className="w-full lg:hidden">
               <ThemeProvider theme={mobCalendarTheme}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -348,7 +430,7 @@ const Booking = () => {
               <button
                 disabled={isSending}
                 type="submit"
-                className={`w-[200px] flex justify-center items-center  transition-all duration-500 py-4 px-8 font-[manrope] font-semibold ${
+                className={`w-[200px] flex justify-center items-center transition-all duration-500 py-4 px-8 font-[manrope] font-semibold ${
                   isSending
                     ? "cursor-not-allowed bg-gray-200"
                     : "cursor-pointer bg-[#A5F211] hover:bg-[#7ef211]"
