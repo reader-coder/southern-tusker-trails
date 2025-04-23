@@ -9,30 +9,31 @@ const Guidelines = () => {
   const accordionContent = [
     {
       id: 0,
-      heading: "Pre-Activity Briefing",
-      desc: "Participants receive a safety briefing outlining the activity, terrain, expected challenges, and emergency protocols. Guides also demonstrate proper use of equipment.",
+      heading: "Stay on the Trail",
+      desc: "Avoid wandering off or taking shortcuts. Staying on marked paths helps preserve fragile ecosystems and ensures your safety throughout the trek."
     },
     {
       id: 1,
-      heading: "Age & Fitness Requirements",
-      desc: "Most activities are suitable for individuals aged 12 and above with moderate physical fitness. Participants should be free from serious medical conditions or recent surgeries.",
+      heading: "Dress & Pack Smart",
+      desc: "Wear sturdy trekking shoes, layer your clothing based on weather, and carry essentials like sun protection, water, rain gear, and personal medications."
     },
     {
       id: 2,
-      heading: "Clothing & Gear",
-      desc: "Wear moisture-wicking clothes, trekking shoes with good grip, and carry essentials like sunscreen, hat, and a refillable water bottle. Gear is usually provided for specialized activities.",
+      heading: "Follow Your Guide",
+      desc: "Always listen to your guide or trek leader. Their instructions are based on experience and safety protocols tailored to each route and condition."
     },
     {
       id: 3,
-      heading: "Weather Conditions",
-      desc: "Activities are weather-dependent. Light rain is manageable, but severe weather may lead to cancellations or rescheduling for safety reasons. Always check the forecast before arrival.",
+      heading: "Respect Nature & Wildlife",
+      desc: "Maintain silence, don’t disturb animals, and observe from a distance. Carry all waste back with you. Take only pictures, leave only footprints."
     },
     {
       id: 4,
-      heading: "Emergency Preparedness",
-      desc: "All guides carry basic first-aid kits and communication devices. Emergency evacuation procedures are in place, and nearest medical facilities are mapped out in advance.",
-    },
+      heading: "Be Trek-Ready",
+      desc: "Start early to avoid heat, hydrate well, and be mentally prepared for uneven terrain. Mobile signals may be weak—stay present and enjoy the trail."
+    }
   ];
+  
 
   return (
     <div className="h-fit px-8 lg:px-20 xl:px-32 2xl:px-56 py-20 xl:py-24 2xl:py-40 flex flex-col items-center gap-12 relative bg-[#1D1D1D]">

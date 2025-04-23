@@ -22,15 +22,14 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Equipment Check
+                Dress Appropriately
               </h5>
               <p className="font-[manrope] text-sm">
-                All safety equipment is thoroughly inspected before and after
-                each activity.
+                Wear weather-appropriate layers and trekking shoes with good grip for rocky or wet paths.
               </p>
             </span>
           </div>
-          {/* Card 2  */}
+          {/* Card 2 */}
           <div className="absolute w-[400px] h-[100px] rounded-[50px]  top-[30%] -left-[20%] xl:-left-[40%] bg-[#a3f21124] backdrop-blur-md flex items-center gap-4 p-3">
             <span className="bg-black min-w-[80px] min-h-[80px] rounded-full flex items-center justify-center">
               <IKImage
@@ -41,15 +40,14 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Emergency Support
+                Follow the Guide
               </h5>
               <p className="font-[manrope] text-sm">
-                First-aid kits and trained medical support are available
-                on-site.
+                Always follow your guide’s instructions to ensure trail safety and better wildlife encounters.
               </p>
             </span>
           </div>
-          {/* Card 3  */}
+          {/* Card 3 */}
           <div className="absolute w-[400px] h-[100px] rounded-[50px]  bottom-[30%] -right-[20%] xl:-right-[40%] bg-[#a3f21124] backdrop-blur-md flex items-center gap-4 p-3">
             <span className="bg-black min-w-[80px] min-h-[80px] rounded-full flex items-center justify-center">
               <IKImage
@@ -60,11 +58,10 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Weather Advisory
+                Respect Nature
               </h5>
               <p className="font-[manrope] text-sm">
-                Activities may be rescheduled or canceled in case of unfavorable
-                weather conditions.
+                Do not litter or disturb wildlife. Stay on marked paths to avoid damaging fragile ecosystems.
               </p>
             </span>
           </div>
@@ -79,11 +76,10 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Hydration & Nutrition
+                Stay Hydrated
               </h5>
               <p className="font-[manrope] text-sm">
-                Stay hydrated and carry energy-boosting snacks during extended
-                activities.
+                Carry enough water and energy snacks. Stay fueled and alert throughout your trek.
               </p>
             </span>
           </div>
@@ -91,7 +87,7 @@ const Safety = () => {
             <div className="h-[500px] w-[300px] rounded-[200px] flex items-center justify-center border-[30px] border-[#a3f21124] overflow-hidden">
               <IKImage
                 urlEndpoint={IKURL}
-                path="Inclusion2.png"
+                path="safetyInstructions"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -111,15 +107,14 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Equipment Check
+                Dress Appropriately
               </h5>
               <p className="font-[manrope] text-sm">
-                All safety equipment is thoroughly inspected before and after
-                each activity.
+                Wear weather-appropriate layers and trekking shoes with good grip for rocky or wet paths.
               </p>
             </span>
           </div>
-          {/* Card 2  */}
+          {/* Card 2 */}
           <div className="w-[400px]  md:w-[450px] h-[100px] rounded-[50px]  top-[30%] -left-[20%] xl:-left-[40%] bg-[#a3f21124] backdrop-blur-md flex items-center gap-4 p-3">
             <span className="bg-black min-w-[80px] min-h-[80px] rounded-full flex items-center justify-center">
               <IKImage
@@ -130,15 +125,14 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Emergency Support
+                Follow the Guide
               </h5>
               <p className="font-[manrope] text-sm">
-                First-aid kits and trained medical support are available
-                on-site.
+                Always follow your guide’s instructions to ensure trail safety and better wildlife encounters.
               </p>
             </span>
           </div>
-          {/* Card 3  */}
+          {/* Card 3 */}
           <div className="w-[400px]  md:w-[450px] h-[100px] rounded-[50px]  bottom-[30%] -right-[20%] xl:-right-[40%] bg-[#a3f21124] backdrop-blur-md flex items-center gap-4 p-3">
             <span className="bg-black min-w-[80px] min-h-[80px] rounded-full flex items-center justify-center">
               <IKImage
@@ -149,11 +143,10 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Weather Advisory
+                Respect Nature
               </h5>
               <p className="font-[manrope] text-sm">
-                Activities may be rescheduled or canceled in case of unfavorable
-                weather conditions.
+                Do not litter or disturb wildlife. Stay on marked paths to avoid damaging fragile ecosystems.
               </p>
             </span>
           </div>
@@ -168,11 +161,10 @@ const Safety = () => {
             </span>
             <span className="flex flex-col gap-2">
               <h5 className="font-[manrope] font-semibold text-xl">
-                Hydration & Nutrition
+                Stay Hydrated
               </h5>
               <p className="font-[manrope] text-sm">
-                Stay hydrated and carry energy-boosting snacks during extended
-                activities.
+                Carry enough water and energy snacks. Stay fueled and alert throughout your trek.
               </p>
             </span>
           </div>
