@@ -6,6 +6,7 @@ const Banner = ({imgPath, Heading}) => {
   return (
 <div className='min-h-[600px] lg:min-h-screen h-[500px] relative overflow-hidden'>
     <IKImage className='h-full w-full absolute top-0 left-0 object-cover bg-zoomOut' urlEndpoint={IKURL} path={imgPath}/>
+    <div className='absolute top-0 left-0 w-full h-full bg-black/50'></div>
     <div className='z-10 absolute top-0 left-0 w-full h-full flex items-center justify-center'><span className='text-white text-4xl lg:text-7xl xl:text-8xl font-[technoNueMedium] text-center fade-in-banner'><Heading/></span></div>
 </div>
   )

@@ -16,12 +16,12 @@ const Footer = () => {
   return (
     <div className="h-fit px-8 lg:px-20 xl:px-32 2xl:px-56 pt-20 xl:pt-24 2xl:pt-40 bg-[url(https://ik.imagekit.io/gzqqjuhn9/footerBG.png)] bg-cover bg-center bg-no-repeat flex flex-col gap-24">
       {/* Top */}
-      <div className="flex flex-col md:grid md:grid-cols-3 gap-10 xl:gap-10 2xl:gap-20">
+      <div className="flex flex-col md:grid md:grid-cols-4 gap-10 xl:gap-10 2xl:gap-20">
         {/* Left */}
         <div className="flex flex-col gap-4">
           <IKImage
             urlEndpoint={IKURL}
-            path="logo.png"
+            path="ST L3.png"
             className="w-20 object-fill"
           />
           <p className="font-[manrope] text-md">
@@ -33,7 +33,7 @@ const Footer = () => {
         {/* Middle */}
         <div className="flex flex-col gap-4">
           <h4 className="font-[manrope] font-semibold text-xl">Navigation</h4>
-          <div className="flex md:flex-col gap-6 lg:flex-row flex-wrap">
+          <div className="flex flex-col gap-6">
             {footerItems.map((item) => (
               <Link className="font-[manrope]" key={item.id} to={item.path}>
                 {item.name}
@@ -42,8 +42,15 @@ const Footer = () => {
           </div>
         </div>
         {/* Right */}
-       <div className="flex flex-col gap-4 sm:flex-row md:flex-col justify-between md:justify-start md:gap-4">
        <div className="flex flex-col gap-4">
+          <h4 className="font-[manrope] font-semibold text-xl">Contact Details</h4>
+          <div className="flex flex-col gap-2 text-lg font-[manrope]">
+            <a href="tel:9633996929">Ph: 9633996929</a>
+            <a href="mailto:sample@mail.com">Email: @</a>
+            <p>Address: 521/09, Kuttiyar valley, Munnar</p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4">
           <h4 className="font-[manrope] font-semibold text-xl">Follow us on</h4>
           <div className="flex gap-4">
             <a
@@ -57,15 +64,6 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <h4 className="font-[manrope] font-semibold text-xl">Contact Details</h4>
-          <div className="flex flex-col gap-2 text-lg font-[manrope]">
-            <a href="tel:9633996929">Ph: 9633996929</a>
-            <a href="mailto:sample@mail.com">Email: @</a>
-            <p>Address: 521/09, Kuttiyar valley, Munnar</p>
-          </div>
-        </div>
-       </div>
       </div>
       {/* Bottom */}
       <div className="py-6 flex flex-col md:flex-row gap-2 items-center md:justify-between text-sm md:text-lg">

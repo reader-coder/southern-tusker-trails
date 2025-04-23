@@ -14,13 +14,13 @@ const Navbar = () => {
     setAnimate(true); // Trigger the animation when the component mounts
   }, []);
   return (
-    <div className={`w-full absolute z-40 p-4 md:p-8 lg:px-16 xl:px-24 2xl:px-36 flex justify-between ${animate? 'navAnimation':''}`}>
+    <div className={`w-full absolute z-40 p-4 md:p-8 lg:px-16 xl:px-24 2xl:px-36 flex items-center justify-between ${animate? 'navAnimation':''}`}>
      <Sidebar position='right' visible={visible} onHide={() => setVisible(false)} className='bg-white' blockScroll={true} showCloseIcon={false} maskClassName='overlay'>
         <div className='w-full p-4 md:py-8 flex justify-end'>
           <button className='cursor-pointer bg-[#A5F211]' onClick={()=>setVisible(false)}><X className='size-7 lg:size-10'/></button>
         </div>
         <div className='w-full flex items-center justify-center'>
-          <IKImage urlEndpoint={IKURL} path='logo.png' className='w-32 lg:w-40'/>
+          <IKImage urlEndpoint={IKURL} path='ST L3.png' className='w-32 lg:w-36'/>
         </div>
         <div className='flex flex-col gap-5 py-6 px-6 text-2xl font-[manrope]'>
           <Link to={'/'} onClick={()=>setVisible(false)}>Home</Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
           <Link to={"/nature-education"} onClick={()=>setVisible(false)}>Nature Education</Link>
         </div>
     </Sidebar>
-    <IKImage urlEndpoint={IKURL} path='logo.png' className='w-20 object-fill'/>
+    <Link to={"/"}><IKImage urlEndpoint={IKURL} path='ST L2.png' className='w-20 object-fill'/></Link>
     <button className='bg-[#A5F211] rounded-full p-2 size-10
      cursor-pointer' onClick={()=>setVisible(true)}><Menu className='size-6'/></button>
     </div>
