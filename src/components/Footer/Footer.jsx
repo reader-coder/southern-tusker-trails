@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <div className="h-fit px-8 lg:px-20 xl:px-32 2xl:px-56 pt-20 xl:pt-24 2xl:pt-40 bg-[url(https://ik.imagekit.io/gzqqjuhn9/footerBG.png)] bg-cover bg-center bg-no-repeat flex flex-col gap-24">
       {/* Top */}
-      <div className="flex flex-col md:grid md:grid-cols-4 gap-10 xl:gap-10 2xl:gap-20">
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-10 xl:grid-cols-4 xl:gap-10 2xl:gap-10">
         {/* Left */}
         <div className="flex flex-col gap-4">
           <IKImage
@@ -33,7 +33,7 @@ const Footer = () => {
         {/* Middle */}
         <div className="flex flex-col gap-4">
           <h4 className="font-[manrope] font-semibold text-xl">Navigation</h4>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col md:flex-row flex-wrap xl:flex-col flex-nowrap gap-6">
             {footerItems.map((item) => (
               <Link className="font-[manrope]" key={item.id} to={item.path}>
                 {item.name}
