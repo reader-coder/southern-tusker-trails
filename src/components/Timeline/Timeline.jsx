@@ -23,7 +23,7 @@ const Timeline = () => {
           <IKImage urlEndpoint={IKURL} path='Camping.png' className='size-40'/>
           <div className='flex flex-col gap-8 justify-center'>
             <h3 className='font-[manrope] font-semibold text-2xl'>Camping</h3>
-            <p className='font-[manrope] text-md'>"Step into the wild, conquer towering peaks, and embrace the thrill of adventure—because every trail leads to a story worth telling!"</p>
+            <p className='font-[manrope] text-md'>"Escape the ordinary, sleep under the stars, and wake up to adventure—because the best memories are made around a campfire!"</p>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@ const Timeline = () => {
             <div className={`rounded-full border-[#A5F211] border-4 bg-black size-8 z-20 ${trigger? 'fadeIn':''}`}></div>
       </div>
       {/* Right */}
-      <div className={`w-full flex flex-col items-center gap-10 sm:gap-0 justify-between py-35 ${trigger ? 'comeFromRight': ''}`}>
+      <div className={`w-full flex flex-col items-center gap-10 justify-between py-35 ${trigger ? 'comeFromRight': ''}`}>
       <div className='flex flex-col sm:flex-row gap-2'>
           <IKImage urlEndpoint={IKURL} path='Trekking.png'className='size-40'/>
           <div className='flex flex-col gap-2 sm:gap-8 justify-center'>

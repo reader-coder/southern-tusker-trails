@@ -45,9 +45,9 @@ const Footer = () => {
        <div className="flex flex-col gap-4">
           <h4 className="font-[manrope] font-semibold text-xl">Contact Details</h4>
           <div className="flex flex-col gap-2 text-lg font-[manrope]">
-            <a href="tel:9633996929">Ph: 9633996929</a>
-            <a href="mailto:southerntuskertrails@gmail.com">Email: southerntuskertrails@gmail.com</a>
-            <p>Address: 521/09, Kuttiyar valley, Munnar</p>
+            <a href="tel:9633996929">9633996929</a>
+            <a href="mailto:southerntuskertrails@gmail.com">southerntuskertrails@gmail.com</a>
+            <p>521/09, Kuttiyar valley, Munnar</p>
           </div>
         </div>
         <div className="flex flex-col gap-4">

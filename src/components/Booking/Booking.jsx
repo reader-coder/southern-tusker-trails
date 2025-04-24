@@ -189,7 +189,7 @@ const Booking = () => {
     const hasErrors = Object.values(newErrors).some((err) => err === true);
     if (hasErrors) return;
     if (selectedTrekkingItems.length<1 && selectedCampingItems.length<1 && selectedAdventureItems.length<1 && !natureEd) {
-      toast.error("Please select at least one trip/activity")
+      toast.error("Please select at least one trip/activity",{position:"bottom-right"})
       return
     }
     try {
