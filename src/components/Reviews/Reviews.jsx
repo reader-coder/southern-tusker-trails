@@ -11,7 +11,7 @@ import { FaQuoteLeft } from "react-icons/fa6";
 import { IKImage } from "imagekitio-react";
 import { IKURL } from "../../lib";
 
-const Reviews = (props) => {
+const Reviews = () => {
   const reviews = [
     {
       id: 0,
@@ -55,9 +55,7 @@ const Reviews = (props) => {
     }
   ];
   
-  
-  const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
