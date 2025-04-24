@@ -28,7 +28,7 @@ const Home = () => {
     },
     {
       img: "https://ik.imagekit.io/gzqqjuhn9/chinnar?updatedAt=1745324631353",
-      plan: "Chinnar Wildlife Sanctury",
+      plan: "Chinnar Wildlife Sanctuary",
       people: "Trekking",
     },
   ];
