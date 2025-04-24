@@ -27,7 +27,7 @@ const UpcomingPackages = (props) => {
   return (
     <div className='bg-[url(https://ik.imagekit.io/gzqqjuhn9/upcomingBG.png?updatedAt=1744002190078)] bg-cover bg-no-repeat bg-center h-[800px] xl:h-[600px] flex flex-col xl:flex-row gap-20 items-center justify-between pt-20 md:pt-30 pb-10  xl:pl-32 2xl:pl-40'>
       <div className='h-full w-full px-8 lg:pl-20 flex flex-col items-center justify-center md:items-start gap-6'>
-        <h3 className='font-[manrope] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold'>Upcoming Packages</h3>
+        <h3 className='font-[manrope] text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold'>Trending Packages</h3>
         <p className='text-white font-[manrope] text-md md:text-lg lg:text-xl xl:2xl text-center md:text-left'>Our meticulously curated itineraries promise unforgettable experiences, from breathtaking landscapes to vibrant cultures.</p>
       </div>
     <section className={styles.upcomingPackages}>

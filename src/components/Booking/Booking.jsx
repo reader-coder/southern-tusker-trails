@@ -215,6 +215,9 @@ const Booking = () => {
     } catch (error) {
       setSendError(true);
       console.log(error);
+      toast.error("Sorry. Please try again :(", {
+        position: "bottom-right",
+      });
     } finally {
       setIsSending(false);
     }
@@ -227,8 +230,7 @@ const Booking = () => {
           Book an Adventure
         </h3>
         <p className="font-[manrope] text-md md:text-lg lg:text-xl text-center md:text-left">
-          Global Adventures, Local Explorations, and the Enchantment of Kerala:
-          Your Gateway to Diverse Travel Experiences!
+        Step into the wild heart of Munnar. Pick your trek, camp, or thrill — and we'll take care of the rest.
         </p>
       </div>
       <div className="grid grid-rows-1 gap-4 lg:grid-cols-2 items-stretch content-center">
