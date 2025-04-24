@@ -18,9 +18,9 @@ const CampingIncluded = () => {
           <IKImage
             urlEndpoint={IKURL}
             path="Inclusion1.png"
-            className="md:rounded-br-[15rem]"
+            className="md:rounded-br-[15rem] h-full object-cover"
           />
-          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl">
+          <p className="text-white font-[manrope] text-xl md:text-xl lg:text-3xl">
             Bonfire & BBQ setup
           </p>
         </div>
@@ -28,29 +28,29 @@ const CampingIncluded = () => {
           <IKImage
             urlEndpoint={IKURL}
             path="Inclusion2.png"
-            className="md:rounded-bl-[15rem]"
+            className="md:rounded-bl-[15rem] h-full object-cover"
           />
-          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl md:text-right">
+          <p className="text-white font-[manrope] text-xl md:text-xl lg:text-3xl md:text-right">
             Comfortable tents & sleeping bags
           </p>
         </div>
         <div className="w-full h-full flex flex-col gap-4">
           <IKImage
             urlEndpoint={IKURL}
-            path="Inclusion2.png"
-            className="md:rounded-tr-[15rem]"
+            path="hiking-safety-tips.jpg"
+            className="md:rounded-tr-[15rem] h-full object-cover"
           />
-          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl">
+          <p className="text-white font-[manrope] text-xl md:text-xl lg:text-3xl">
             Safety & first-aid support
           </p>
         </div>
         <div className="w-full h-full flex flex-col md:items-end gap-4">
           <IKImage
             urlEndpoint={IKURL}
-            path="Inclusion1.png"
-            className="md:rounded-tl-[15rem]"
+            path="nature-walk"
+            className="md:rounded-tl-[15rem] h-full object-cover"
           />
-          <p className="text-white font-[manrope] text-lg md:text-xl lg:text-3xl md:text-right">
+          <p className="text-white font-[manrope] text-xl md:text-xl lg:text-3xl md:text-right">
             Guided nature walks & activities
           </p>
         </div>

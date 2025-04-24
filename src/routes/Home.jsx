@@ -45,7 +45,7 @@ const Home = () => {
       <PopularActivities />
       <ThingsToEnjoy />
       <Highlights />
-      <div className="bg-[url(https://ik.imagekit.io/gzqqjuhn9/reviewsBG.png?updatedAt=1744280479668)] bg-left bg-size-[700px] bg-no-repeat">
+      <div className="bg-[url(https://ik.imagekit.io/gzqqjuhn9/reviewsBG.png?updatedAt=1744280479668)] bg-size-[700px] bg-no-repeat">
         <Reviews slides={SLIDES} options={OPTIONS} />
         <Booking />
       </div>

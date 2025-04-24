@@ -16,7 +16,7 @@ const Timeline = () => {
   });
 
   return (
-    <div ref={ref} className='h-fit max-w-screen bg-[url(/assets/timelineBG.webp)] bg-contain bg-no-repeat bg-center flex justify-center gap-8 lg:gap-16 px-8 lg:px-20 xl:px-32 2xl:px-56 container'>
+    <div ref={ref} className='h-fit max-w-screen bg-[url(https://ik.imagekit.io/gzqqjuhn9/timelineBG.png?updatedAt=1745484213448)] bg-contain bg-no-repeat bg-center flex justify-center gap-8 lg:gap-16 px-8 lg:px-20 xl:px-32 2xl:px-56 container'>
       {/* Left */}
       <div className={`hidden w-full md:flex flex-col items-center justify-center ${trigger?'comeFromLeft':''}`}>
         <div className='flex gap-2'>

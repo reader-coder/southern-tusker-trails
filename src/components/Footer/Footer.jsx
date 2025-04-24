@@ -46,7 +46,7 @@ const Footer = () => {
           <h4 className="font-[manrope] font-semibold text-xl">Contact Details</h4>
           <div className="flex flex-col gap-2 text-lg font-[manrope]">
             <a href="tel:9633996929">Ph: 9633996929</a>
-            <a href="mailto:sample@mail.com">Email: @</a>
+            <a href="mailto:southerntuskertrails@gmail.com">Email: southerntuskertrails@gmail.com</a>
             <p>Address: 521/09, Kuttiyar valley, Munnar</p>
           </div>
         </div>
@@ -73,7 +73,7 @@ const Footer = () => {
         </p>
         <p className="font-[manrope]">
           Powered by{" "}
-          <a className="font-bold" href="https://codesvera.com/">
+          <a className="font-bold" href="https://codesvera.com/" target="_blank">
             Codesvera
           </a>
         </p>
