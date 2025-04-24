@@ -33,7 +33,7 @@ const Footer = () => {
         {/* Middle */}
         <div className="flex flex-col gap-4">
           <h4 className="font-[manrope] font-semibold text-xl">Navigation</h4>
-          <div className="flex flex-col md:flex-row flex-wrap xl:flex-col flex-nowrap gap-6">
+          <div className="flex flex-col md:flex-row flex-wrap xl:flex-col xl:flex-nowrap gap-6">
             {footerItems.map((item) => (
               <Link className="font-[manrope]" key={item.id} to={item.path}>
                 {item.name}
