@@ -78,7 +78,6 @@ const mobCalendarTheme = createTheme({
 
 const Booking = () => {
   const [value, setValue] = useState(dayjs(new Date().toISOString()));
-  const [plan, setPlan] = useState("");
   const [errors, setErrors] = useState({
     firstNameError: false,
     lastNameError: false,
@@ -189,7 +188,10 @@ const Booking = () => {
 
     const hasErrors = Object.values(newErrors).some((err) => err === true);
     if (hasErrors) return;
-
+    if (selectedTrekkingItems.length<1 && selectedCampingItems.length<1 && selectedAdventureItems.length<1 && !natureEd) {
+      toast.error("Please select at least one trip/activity")
+      return
+    }
     try {
       setIsSending(true);
       await emailjs.send(
