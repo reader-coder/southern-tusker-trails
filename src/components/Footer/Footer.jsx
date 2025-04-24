@@ -42,26 +42,36 @@ const Footer = () => {
           </div>
         </div>
         {/* Right */}
-       <div className="flex flex-col gap-4">
-          <h4 className="font-[manrope] font-semibold text-xl">Contact Details</h4>
+        <div className="flex flex-col gap-4">
+          <h4 className="font-[manrope] font-semibold text-xl">
+            Contact Details
+          </h4>
           <div className="flex flex-col gap-2 text-lg font-[manrope]">
             <a href="tel:9633996929">9633996929</a>
-            <a href="mailto:southerntuskertrails@gmail.com">southerntuskertrails@gmail.com</a>
+            <a href="mailto:southerntuskertrails@gmail.com">
+              southerntuskertrails@gmail.com
+            </a>
             <p>521/09, Kuttiyar valley, Munnar</p>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <h4 className="font-[manrope] font-semibold text-xl">Follow us on</h4>
-          <div className="flex gap-4">
-            <a
-              href="https://www.instagram.com/southerntuskertrails"
-              target="_blank"
-              className="inline"
-            >
-              <div className="p-3 rounded-full border-2 border-black">
-                <FaInstagram className="size-6" />
-              </div>
-            </a>
+        <div className="w-full h-full flex justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <h4 className="font-[manrope] font-semibold text-xl">
+              Follow us on
+            </h4>
+            <div className="flex gap-4">
+              <a
+                href="https://www.instagram.com/southerntuskertrails"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-block"
+              >
+                <div className="p-3 rounded-full border-2 border-black hover:bg-black hover:text-white transition">
+                  <FaInstagram className="size-6" />
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -73,7 +83,11 @@ const Footer = () => {
         </p>
         <p className="font-[manrope]">
           Powered by{" "}
-          <a className="font-bold" href="https://codesvera.com/" target="_blank">
+          <a
+            className="font-bold"
+            href="https://codesvera.com/"
+            target="_blank"
+          >
             Codesvera
           </a>
         </p>
