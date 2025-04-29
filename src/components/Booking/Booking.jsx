@@ -85,6 +85,8 @@ const Booking = () => {
     phoneError: false,
     planError: false,
     dateError: false,
+    adultsError: false,
+    kidsError: false,
   });
   const [isSending, setIsSending] = useState(false);
   const [sendError, setSendError] = useState(false);
@@ -153,13 +155,12 @@ const Booking = () => {
       prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
     );
   };
-  
 
   const firstNameValidator = (name) => /^[A-Za-z\s'-]+$/.test(name);
   const emailValidator = (email) =>
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
   const phoneValidator = (phone) => /^[0-9]{10}$/.test(phone);
-  const planValidator = (plan) => !!plan;
+  const travellerValidator = (number) => /^\d+$/.test(number);
 
   const handleFormSubmission = async (e) => {
     e.preventDefault();
@@ -169,11 +170,15 @@ const Booking = () => {
     const lastName = formData.get("lastName") || "";
     const email = formData.get("email");
     const phone = formData.get("phone");
+    const adults = formData.get("adults");
+    const kids = formData.get("kids");
 
     const isFirstNameValid = firstNameValidator(firstName);
     const isEmailValid = emailValidator(email);
     const isPhoneValid = phoneValidator(phone);
     const isDateValid = !!value;
+    const isAdultsValid = travellerValidator(adults);
+    const isKidsValid = travellerValidator(kids);
 
     const newErrors = {
       firstNameError: !isFirstNameValid,
@@ -182,15 +187,24 @@ const Booking = () => {
       phoneError: !isPhoneValid,
       planError: false,
       dateError: !isDateValid,
+      adultsError: !isAdultsValid,
+      kidsError: !isKidsValid,
     };
 
     setErrors(newErrors);
 
     const hasErrors = Object.values(newErrors).some((err) => err === true);
     if (hasErrors) return;
-    if (selectedTrekkingItems.length<1 && selectedCampingItems.length<1 && selectedAdventureItems.length<1 && !natureEd) {
-      toast.error("Please select at least one trip/activity",{position:"bottom-right"})
-      return
+    if (
+      selectedTrekkingItems.length < 1 &&
+      selectedCampingItems.length < 1 &&
+      selectedAdventureItems.length < 1 &&
+      !natureEd
+    ) {
+      toast.error("Please select at least one trip/activity", {
+        position: "bottom-right",
+      });
+      return;
     }
     try {
       setIsSending(true);
@@ -202,11 +216,17 @@ const Booking = () => {
           lastName,
           phone,
           email,
+          adults,
+          kids,
           date: dayjs(value).format("dddd DD MMMM YYYY"),
-          trekking: trekking ? selectedTrekkingItems.join(", ") || "N/A" : "N/A",
-          camping: camping? selectedCampingItems.join(", ") || "N/A": "N/A",
-          adventure: adventure ? selectedAdventureItems.join(", ") || "N/A" : "N/A",
-          natureEducation: natureEd ? "Yes" : "No"
+          trekking: trekking
+            ? selectedTrekkingItems.join(", ") || "N/A"
+            : "N/A",
+          camping: camping ? selectedCampingItems.join(", ") || "N/A" : "N/A",
+          adventure: adventure
+            ? selectedAdventureItems.join(", ") || "N/A"
+            : "N/A",
+          natureEducation: natureEd ? "Yes" : "No",
         },
         { publicKey: EMAILJS_PUBLIC_KEY }
       );
@@ -229,10 +249,11 @@ const Booking = () => {
     <div className="h-fit px-8 lg:px-20 xl:px-32 2xl:px-56 py-20 xl:py-24 2xl:py-40 flex flex-col gap-14">
       <div className="flex flex-col items-center justify-center xl:items-start gap-6">
         <h3 className="font-[manrope] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
-          Book an Adventure
+          Enquire an Adventure
         </h3>
         <p className="font-[manrope] text-md md:text-lg lg:text-xl text-center md:text-left">
-        Step into the wild heart of Munnar. Pick your trek, camp, or thrill — and we'll take care of the rest.
+          Step into the wild heart of Munnar. Pick your trek, camp, or thrill —
+          and we'll take care of the rest.
         </p>
       </div>
       <div className="grid grid-rows-1 gap-4 lg:grid-cols-2 items-stretch content-center">
@@ -319,6 +340,31 @@ const Booking = () => {
               name="phone"
               type="tel"
             />
+            <span className="flex flex-col md:flex-row w-full gap-3">
+              <TextField
+                error={errors.adultsError}
+                helperText={
+                  errors.adultsError
+                    ? "Please provide the number of adults"
+                    : ""
+                }
+                className="w-full"
+                required
+                label="Adults"
+                name="adults"
+              />
+              <TextField
+                error={errors.kidsError}
+                helperText={
+                  errors.kidsError
+                    ? "Please provide the number of kids"
+                    : ""
+                }
+                className="w-full"
+                label="Kids (Below 8 years)"
+                name="kids"
+              />
+            </span>
             <span className="hidden lg:block w-full">
               <TextField
                 className="w-full"
@@ -326,6 +372,19 @@ const Booking = () => {
                 label="Date"
                 value={dayjs(value).format("dddd DD MMMM YYYY")}
               />
+            </span>
+            <span className="w-full lg:hidden">
+              <ThemeProvider theme={mobCalendarTheme}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    className="w-full"
+                    label="Select a date"
+                    shouldDisableDate={disablePastDates}
+                    value={value}
+                    onChange={(newValue) => setValue(newValue)}
+                  />
+                </LocalizationProvider>
+              </ThemeProvider>
             </span>
             <FormGroup>
               <FormControlLabel
@@ -417,19 +476,6 @@ const Booking = () => {
                 label="Nature Education"
               />
             </FormGroup>
-            <span className="w-full lg:hidden">
-              <ThemeProvider theme={mobCalendarTheme}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
-                    className="w-full"
-                    label="Select a date"
-                    shouldDisableDate={disablePastDates}
-                    value={value}
-                    onChange={(newValue) => setValue(newValue)}
-                  />
-                </LocalizationProvider>
-              </ThemeProvider>
-            </span>
             <div className="w-full flex flex-col md:flex-row md:items-center gap-3">
               <button
                 disabled={isSending}
