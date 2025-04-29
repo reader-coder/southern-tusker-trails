@@ -7,11 +7,12 @@ import { Copyright } from "lucide-react";
 
 const Footer = () => {
   const footerItems = [
-    { id: 0, name: "Home", path: "/" },
+    // { id: 0, name: "Home", path: "/" },
     { id: 1, name: "Trekking", path: "/trekking" },
     { id: 2, name: "Camping", path: "/camping" },
     { id: 3, name: "Adventure Activities", path: "/adventure-activities" },
-    { id: 4, name: "Nature Education", path: "/nature-education" },
+    { id: 4, name: "Nature Education", path: "/nature-education" },,
+    {id:5, name:"Glamping",path:'/glamping'}
   ];
   return (
     <div className="h-fit px-8 lg:px-20 xl:px-32 2xl:px-56 pt-20 xl:pt-24 2xl:pt-40 bg-[url(https://ik.imagekit.io/gzqqjuhn9/footerBG.png)] bg-cover bg-center bg-no-repeat flex flex-col gap-24">
@@ -54,7 +55,7 @@ const Footer = () => {
             <p>521/09, Kuttiyar valley, Munnar</p>
           </div>
         </div>
-        <div className="w-full h-full flex justify-center">
+        <div className="w-full h-full flex  justify-center">
           <div className="flex flex-col items-center gap-4">
             <h4 className="font-[manrope] font-semibold text-xl">
               Follow us on
