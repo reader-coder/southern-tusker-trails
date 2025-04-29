@@ -52,10 +52,10 @@ const Navbar = () => {
             Camping
           </Link>
           <Link to={"/adventure-activities"} onClick={() => setVisible(false)}>
-            Adventures
+            Adventure
           </Link>
-          <Link to={"/nature-education"} onClick={() => setVisible(false)}>
-            Nature Education
+          <Link to={"/bunny-buds"} onClick={() => setVisible(false)}>
+            Bunny Buds
           </Link>
           <Link to={"/glamping"} onClick={() => setVisible(false)}>
             Glamping

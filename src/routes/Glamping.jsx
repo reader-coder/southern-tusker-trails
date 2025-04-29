@@ -18,7 +18,7 @@ const Glamping = () => {
 
   return (
     <>
-      <Banner imgPath={"campingBG.png"} Heading={bannerHeading} />
+      <Banner imgPath={"glamping"} Heading={bannerHeading} />
     </>
   );
 };

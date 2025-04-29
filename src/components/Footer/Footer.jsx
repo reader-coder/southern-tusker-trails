@@ -10,8 +10,8 @@ const Footer = () => {
     // { id: 0, name: "Home", path: "/" },
     { id: 1, name: "Trekking", path: "/trekking" },
     { id: 2, name: "Camping", path: "/camping" },
-    { id: 3, name: "Adventure Activities", path: "/adventure-activities" },
-    { id: 4, name: "Nature Education", path: "/nature-education" },,
+    { id: 3, name: "Adventure", path: "/adventure-activities" },
+    { id: 4, name: "Bunny Buds", path: "/bunny-buds" },,
     {id:5, name:"Glamping",path:'/glamping'}
   ];
   return (

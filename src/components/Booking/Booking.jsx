@@ -398,7 +398,7 @@ const Booking = () => {
                 label="Trekking"
               />
               {trekking && (
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 fade-in">
                   {trekkingItems.map((item) => (
                     <FormControlLabel
                       key={item}
@@ -424,7 +424,7 @@ const Booking = () => {
                 label="Camping"
               />
               {camping && (
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 fade-in">
                   {campingItems.map((item) => (
                     <FormControlLabel
                       key={item}
@@ -450,7 +450,7 @@ const Booking = () => {
                 label="Adventure Activities"
               />
               {adventure && (
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 fade-in">
                   {adventureItems.map((item) => (
                     <FormControlLabel
                       key={item}

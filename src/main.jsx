@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/trekking' element={<Trekking/>}/>
       <Route path='/camping' element={<Camping/>}/>
       <Route path='/adventure-activities' element={<Adventures/>}/>
-      <Route path='/nature-education' element={<NatureEd/>}/>
+      <Route path='/bunny-buds' element={<NatureEd/>}/>
       <Route path='/glamping' element={<Glamping/>}/>
       </Route>
     </Routes>
