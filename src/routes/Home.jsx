@@ -7,6 +7,7 @@ import ThingsToEnjoy from "../components/ThingsToEnjoy/ThingsToEnjoy";
 import Highlights from "../components/Highlights/Highlights";
 import Reviews from "../components/Reviews/Reviews";
 import Booking from "../components/Booking/Booking";
+import Gallery from "../components/Gallery/Gallery";
 
 const Home = () => {
   const UPCOMING_OPTIONS = { loop: true };
@@ -38,7 +39,8 @@ const Home = () => {
       <HomeBanner />
       <Timeline />
       <UpcomingPackages slides={UPCOMING_SLIDES} options={UPCOMING_OPTIONS} />
-      <PopularActivities />
+      <Gallery/>
+      {/* <PopularActivities /> */}
       <ThingsToEnjoy />
       <Highlights />
       <div className="bg-[url(https://ik.imagekit.io/gzqqjuhn9/reviewsBG.png?updatedAt=1744280479668)] bg-size-[700px] bg-no-repeat">
