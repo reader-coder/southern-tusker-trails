@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: 
 
 jobs:
   build:
@@ -19,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t "${{vars.DOCKERHUB_USERNAME}}/tusker:$ .{{github.sha}}"
+        run: docker build -t "${{vars.DOCKERHUB_USERNAME}}/tusker:${{github.sha}} ."
 
       - name: Push to Docker registry
         run: docker push "${{vars.DOCKERHUB_USERNAME}}/tusker:${{github.sha}}"
@@ -41,7 +42,7 @@ jobs:
           scp -i server.pem \
           k8s/deployment.yml \
            k8s/service.yml \
-            ${{ vars.EC2_USERNAME }}@${{ secrets.EC2_IP }}:/tmp/
+            ${{ vars.EC2_USERNAME }}@${{ secrets.EC2_IP}}:/tmp/
 
       - name: Apply Kubernetes Service
         run: |
