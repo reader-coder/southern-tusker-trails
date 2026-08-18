@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tusker-deployment
+  labels:
+    app: tusker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tusker
+  template:
+    metadata:
+      labels:
+        app: tusker
+    spec:
+      containers:
+      - name: tusker
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 80
