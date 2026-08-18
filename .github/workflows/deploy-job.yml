@@ -36,10 +36,10 @@ jobs:
         run: |
           printf '%s\n' "${{ secrets.PEM_CONTENT }}" | tr -d '\r' > server.pem
           chmod 600 server.pem
-      - name: Validate PEM
+      - name: Add EC2 to known hosts
         run: |
-          ssh-keygen -y -f server.pem > /dev/null
-          
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.EC2_IP }} >> ~/.ssh/known_hosts
       - name: Copy Kubernetes manifests
         run: |
           scp -i server.pem \
