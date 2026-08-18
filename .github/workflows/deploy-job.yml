@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t "${{vars.DOCKERHUB_USERNAME}}/tusker:${{github.sha}} ."
+        run: docker build -t "${{vars.DOCKERHUB_USERNAME}}/tusker:${{github.sha}}" .
 
       - name: Push to Docker registry
         run: docker push "${{vars.DOCKERHUB_USERNAME}}/tusker:${{github.sha}}"
