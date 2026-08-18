@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -34,9 +34,12 @@ jobs:
 
       - name: Create .pem file
         run: |
-          echo "${{ secrets.PEM_CONTENT }}" > server.pem
+          printf '%s\n' "${{ secrets.PEM_CONTENT }}" | tr -d '\r' > server.pem
           chmod 600 server.pem
-
+      - name: Validate PEM
+        run: |
+          ssh-keygen -y -f server.pem > /dev/null
+          
       - name: Copy Kubernetes manifests
         run: |
           scp -i server.pem \
