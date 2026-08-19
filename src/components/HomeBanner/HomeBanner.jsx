@@ -24,7 +24,7 @@ const HomeBanner = () => {
                 </div>
                 {/* Text box */}
                 <div className='w-full flex flex-col gap-1 px-2 mt-50 sm:mt-0 sm:gap-2 lg:gap-6 justify-center items-center textBox select-none'>
-                    <h1 className='text-white text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-[technoNueMedium] text-center'>Experience Munnar <br />like never before!</h1>
+                    <h1 className='text-white text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-[technoNueMedium] text-center'>Experience Munnar <br />like never before! v2.0</h1>
                     <p className='text-white text-md lg:text-3xl xl:text-4xl font-[manrope] text-center'>"Unveil Munnar’s Magic – A Journey Beyond the Ordinary!"</p>
                 </div>
             </div>
